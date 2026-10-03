@@ -71,3 +71,52 @@ logs/
 *.temp
 task.md
 walkthrough.md
+
+# Local-only media retained from previous blog content.
+# New media remains trackable unless it matches one of these existing paths.
+/assets/audios/Record_Makers_Kavinsky_Nightcall_Drive_Original_Movie_Soundtrack.mp3
+/assets/audios/Record_Makers_Kavinsky_Testarossa_Autodrive_Official_Audio.mp3
+/assets/images/6082622574421981296_121.jpg
+/assets/images/6084631841727429123_121.jpg
+/assets/images/6091192137984096597_120.jpg
+/assets/images/6091192137984096598_120.jpg
+/assets/images/6091192137984096599_120.jpg
+/assets/images/6091192137984096601_121.jpg
+/assets/images/CopyRightZGQInc881.png
+/assets/images/ZGQincLiqun1467.png
+/assets/images/avatar.png
+/assets/images/banner-wesen.png
+/assets/images/jekyll.jpg
+/assets/images/samsung-manual.jpg
+/assets/images/tt0075537.jpg
+/assets/images/tt12706768.jpg
+/assets/images/tt1687247.jpg
+/assets/videos/2024-01/VID_20240101_231118.mp4
+/assets/videos/2024-01/mmexport1704196542004.mp4
+/assets/videos/2024-01/mmexport1704599130210.mp4
+/assets/videos/2024-02/VID_20240223_121547.mp4
+/assets/videos/2024-08/double-screen.mp4
+/assets/videos/2024-08/double-screen_thumb.jpg
+/assets/videos/2024-12/VID_20241204_223820.mp4
+/assets/videos/2025-02/avatar_ref_video.mp4
+/assets/videos/2025-05/Screen_Recording_20250520_171209_One UI Home.mp4
+/assets/videos/2025-05/one_ui_home_gesture.mp4
+/assets/videos/2025-07/VHS_20250719_00422300.MP4
+/assets/videos/2025-07/avatar_vhs.mp4
+/assets/videos/2025-08/20250823_004955.mp4
+/assets/videos/2025-08/bad_apple_rgb.mp4
+/assets/videos/2026-01/20260123_162859.mp4
+/assets/videos/2026-01/20260123_175752.mp4
+/assets/videos/2026-05/20260517_204030_1.mp4
+/assets/videos/2026-06/20260616_232224.mp4
+/assets/videos/2026-06/20260618_002002.mp4
+/assets/videos/2026-08/grabby_aliens_expansion.mp4
+/assets/videos/2026-08/grabby_aliens_expansion.mp4_thumb.jpg
+/assets/videos/rickroll.mp4
+
+# Local project notes and personal data
+/HANDOFF.md
+/docs/AI_NEWS_COLLECTOR_PHASE1_TASK_TREE.md
+/docs/PERSONALIZATION_BRIEF.md
+/docs/PERSONALIZATION_IMAGES.md
+/docs/jekyll_blog_netlify_static_migration_plan.md
