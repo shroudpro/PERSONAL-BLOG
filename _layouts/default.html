@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'zh-CN' }}">
+<head>
+  {% include head.html %}
+  <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+  <script src="{{ '/assets/js/code-blocks.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+  <script src="{{ '/assets/js/article-enhancements.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+  <script src="{{ '/assets/js/media-gallery.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+  <script src="{{ '/assets/js/media-player.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+  <script src="{{ '/assets/js/embed-enhancer.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+  <script src="{{ '/assets/js/calendar.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+  <script src="{{ '/assets/js/pagination.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+</head>
+<body class="preload">
+
+<!-- Reading Progress Bar -->
+<div id="readingProgress" aria-hidden="true"></div>
+
+<!-- App Shell -->
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  {% include sidebar.html %}
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Mobile Top App Bar -->
+    <header class="top-app-bar" role="banner">
+      <button class="icon-btn" id="menuBtn" aria-label="打开菜单" aria-expanded="false" aria-controls="sidebar">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <span class="app-bar-title">{{ site.title }}</span>
+      <div style="flex: 1;"></div>
+      <button class="icon-btn" id="topTocBtn" aria-label="目录" title="目录" style="display: none;">
+        <span class="material-symbols-outlined">menu_open</span>
+      </button>
+    </header>
+
+    <!-- Content Area Loader (MD3 Circular Progress) -->
+    <div id="pageLoader" class="page-loader-overlay" aria-label="页面加载中" role="status">
+      <div class="page-loader-spinner" aria-hidden="true"></div>
+    </div>
+    <script>
+      (function() {
+        var dismissed = false;
+        function dismiss() {
+          if (dismissed) return;
+          dismissed = true;
+          document.body.classList.remove('preload');
+          var el = document.getElementById('pageLoader');
+          if (!el) return;
+          el.classList.add('is-loaded');
+          setTimeout(function() {
+            if (el && el.parentNode) el.style.display = 'none';
+          }, 240);
+        }
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+          requestAnimationFrame(dismiss);
+        } else {
+          window.addEventListener('load', function() { requestAnimationFrame(dismiss); });
+          document.addEventListener('DOMContentLoaded', function() { requestAnimationFrame(dismiss); });
+        }
+        setTimeout(dismiss, 1200);
+        window.addEventListener('pageshow', function(e) { if (e.persisted) dismiss(); });
+        window.dismissPageLoader = dismiss;
+      })();
+    </script>
+
+    <!-- Page Content -->
+    {{ content }}
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+      <p>
+        © {{ site.time | date: "%Y" }} <a href="{{ '/' | relative_url }}">{{ site.author.name }}</a>
+        · Built with <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
+      </p>
+    </footer>
+
+  </div><!-- /main-content -->
+
+  <!-- TOC Overlay -->
+  <div class="toc-overlay" id="tocOverlay" aria-hidden="true"></div>
+
+  <!-- PC TOC Floating Button -->
+  <button class="pc-toc-btn" id="pcTocBtn" aria-label="展开目录" title="展开目录" style="display: none;">
+    <span class="material-symbols-outlined">menu_book</span>
+    <span class="btn-text">目录</span>
+  </button>
+
+  <!-- Right Sidebar TOC Drawer -->
+  <aside class="toc-drawer" id="tocDrawer">
+    <div class="toc-header">
+      <span class="material-symbols-outlined">format_list_bulleted</span>
+      <span class="toc-title">目录</span>
+      <button class="icon-btn" id="tocCloseBtn" style="margin-left:auto" aria-label="关闭目录">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="toc-content" id="tocContent">
+      <!-- JS dynamically injects TOC here -->
+    </div>
+  </aside>
+
+</div><!-- /app-shell -->
+
+<!-- Back to Top FAB -->
+<button class="fab back-to-top" id="backToTopBtn" aria-label="回到顶部">
+  <span class="material-symbols-outlined">arrow_upward</span>
+</button>
+
+<!-- Markdown Lazy Renderers (Mermaid, STL, GeoJSON) -->
+<script src="{{ '/assets/js/renderers.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+
+<!-- Color Swatches for Inline Code -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const inlineCodes = document.querySelectorAll('code');
+    const colorRegex = /^(#([0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})|rgba?\([\d\s,%.]+\)|hsla?\([\d\s,%.a-zA-Z]+\))$/i;
+    
+    inlineCodes.forEach(code => {
+      if (code.parentElement && code.parentElement.tagName === 'PRE') return;
+      
+      const text = code.textContent.trim();
+      if (colorRegex.test(text)) {
+        const swatch = document.createElement('span');
+        swatch.className = 'color-swatch';
+        swatch.style.backgroundColor = text;
+        
+        code.classList.add('has-color-swatch');
+        code.prepend(swatch);
+      }
+    });
+  });
+</script>
+
+{% include calendar-dialog.html %}
+{% include bottom-island.html %}
+{% include pwa.html %}
+</body>
+</html>

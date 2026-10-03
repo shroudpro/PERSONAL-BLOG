@@ -1,0 +1,378 @@
+<style>
+/* Banner Carousel Styles */
+.banner-carousel {
+  position: relative;
+  width: 100%;
+  height: clamp(180px, 25vh, 260px);
+  border-radius: 28px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  background-color: var(--md-sys-color-surface-variant);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .banner-carousel {
+    height: clamp(140px, 20vh, 200px);
+    border-radius: 20px;
+  }
+}
+
+.banner-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.banner-track::-webkit-scrollbar { display: none; }
+
+.banner-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: block;
+  text-decoration: none;
+  overflow: hidden;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+/* Backgrounds */
+.banner-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+/* Gradients for text-only banners */
+.banner-gradient-1 { background: linear-gradient(135deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary)); }
+.banner-gradient-2 { background: linear-gradient(135deg, var(--md-sys-color-secondary), var(--md-sys-color-primary)); }
+.banner-gradient-3 { background: linear-gradient(135deg, var(--md-sys-color-tertiary), var(--md-sys-color-secondary)); }
+.banner-gradient-4 { background: linear-gradient(135deg, var(--md-sys-color-error), var(--md-sys-color-primary)); }
+
+/* Overlay to ensure text readability */
+.banner-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.1) 100%);
+  z-index: 2;
+}
+
+.banner-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px 20px 24px 20px;
+  z-index: 3;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .banner-content {
+    padding: 16px 16px 16px 16px;
+  }
+}
+
+.banner-tag {
+  align-self: flex-start;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.banner-title {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .banner-title { font-size: 1.25rem; }
+}
+
+.banner-summary {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .banner-summary { font-size: 0.85rem; }
+}
+
+/* Indicators */
+.banner-indicators {
+  position: absolute;
+  bottom: 12px;
+  right: 24px;
+  display: flex;
+  gap: 6px;
+  z-index: 4;
+}
+
+@media (max-width: 768px) {
+  .banner-indicators { right: 16px; bottom: 10px; }
+}
+
+.banner-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--md-sys-color-outline-variant);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.banner-dot.active {
+  width: 20px;
+  border-radius: 4px;
+  background-color: var(--md-sys-color-primary);
+}
+
+/* Navigation Buttons */
+.banner-nav-btn {
+  position: absolute;
+  top: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: color-mix(in srgb, var(--md-sys-color-surface) 80%, transparent);
+  backdrop-filter: blur(4px);
+  color: var(--md-sys-color-on-surface);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  border: none;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.banner-carousel:hover .banner-nav-btn { opacity: 1; }
+.banner-nav-btn:hover { background-color: var(--md-sys-color-surface); }
+.banner-nav-prev { left: 16px; }
+.banner-nav-next { right: 16px; }
+@media (max-width: 1024px) {
+  .banner-nav-btn { width: 32px; height: 32px; opacity: 0.9; }
+  .banner-nav-prev { left: 12px; top: 12px; }
+  .banner-nav-next { right: 12px; top: 12px; }
+}
+/* Progress Bar */
+.banner-progress-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--md-sys-color-surface-variant);
+  z-index: 4;
+}
+
+.banner-progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: var(--md-sys-color-primary);
+  /* The transition will be handled by JS for smooth pausing */
+}
+</style>
+{% assign active_announcements = include.announcements | where_exp: "post", "post.archive != true" %}
+<div class="banner-carousel" id="bannerCarousel">
+  <div class="banner-progress-container">
+    <div class="banner-progress-bar" id="bannerProgress"></div>
+  </div>
+
+  <div class="banner-track" id="bannerTrack">
+    {% for post in active_announcements %}
+      {% assign mod = forloop.index | modulo: 4 %}
+      {% if mod == 0 %}{% assign gradient_class = "banner-gradient-1" %}{% endif %}
+      {% if mod == 1 %}{% assign gradient_class = "banner-gradient-2" %}{% endif %}
+      {% if mod == 2 %}{% assign gradient_class = "banner-gradient-3" %}{% endif %}
+      {% if mod == 3 %}{% assign gradient_class = "banner-gradient-4" %}{% endif %}
+      
+      <a href="{{ post.url | relative_url }}" class="banner-slide" aria-label="{{ post.title }}">
+        {% if post.image %}
+          <div class="banner-bg" style="background-image: url('{{ post.image }}');"></div>
+        {% else %}
+          <div class="banner-bg {{ gradient_class }}"></div>
+        {% endif %}
+        
+        <div class="banner-overlay"></div>
+        
+        <div class="banner-content">
+          {% assign badge_text = post.badge | default: "📣 最新公告" %}
+          <span class="banner-tag">{{ badge_text }}</span>
+          <h2 class="banner-title">{{ post.title }}</h2>
+          {% if post.summary %}
+            <p class="banner-summary">{{ post.summary }}</p>
+          {% elsif post.excerpt %}
+            <p class="banner-summary">{{ post.excerpt | strip_html | truncate: 60 }}</p>
+          {% endif %}
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+
+    <button class="banner-nav-btn banner-nav-prev" id="bannerPrevBtn" aria-label="上一页">
+    <span class="material-symbols-outlined">chevron_left</span>
+  </button>
+  <button class="banner-nav-btn banner-nav-next" id="bannerNextBtn" aria-label="下一页">
+    <span class="material-symbols-outlined">chevron_right</span>
+  </button>
+  <div class="banner-indicators" id="bannerDots">
+    {% for post in active_announcements %}
+      <div class="banner-dot {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}"></div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const carousel = document.getElementById('bannerCarousel');
+  if (!carousel) return;
+
+  const track = document.getElementById('bannerTrack');
+  const dots = document.querySelectorAll('.banner-dot');
+  const progressBar = document.getElementById('bannerProgress');
+  
+  const slideCount = dots.length;
+  if (slideCount <= 1) {
+    if (progressBar) progressBar.style.display = 'none';
+    if (dots.length) document.getElementById('bannerDots').style.display = 'none';
+    return;
+  }
+
+  const SLIDE_DURATION = 5000; // 5 seconds per slide
+  let currentIndex = 0;
+  let startTime = null;
+  let progress = 0; // 0 to 1
+  let animationFrameId = null;
+  let isPaused = false;
+
+  function updateCarousel() {
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
+    });
+  }
+
+  function goToSlide(index) {
+    currentIndex = index;
+    if (currentIndex >= slideCount) currentIndex = 0;
+    if (currentIndex < 0) currentIndex = slideCount - 1;
+    
+    track.scrollTo({
+      left: currentIndex * track.clientWidth,
+      behavior: 'smooth'
+    });
+    
+    updateCarousel();
+    progress = 0;
+    startTime = performance.now();
+  }
+
+  function nextSlide() {
+    goToSlide(currentIndex + 1);
+  }
+
+  function animate(timestamp) {
+    if (!startTime) startTime = timestamp;
+    
+    if (!isPaused) {
+      const elapsed = timestamp - startTime;
+      progress = Math.min(elapsed / SLIDE_DURATION, 1);
+      if (progressBar) progressBar.style.width = `${progress * 100}%`;
+      
+      if (progress >= 1) {
+        nextSlide();
+      }
+    } else {
+      startTime = timestamp - (progress * SLIDE_DURATION);
+    }
+    
+    animationFrameId = requestAnimationFrame(animate);
+  }
+
+  const prevBtn = document.getElementById('bannerPrevBtn');
+  const nextBtn = document.getElementById('bannerNextBtn');
+  
+  if (prevBtn && nextBtn) {
+    if (slideCount <= 1) {
+      prevBtn.style.display = 'none';
+      nextBtn.style.display = 'none';
+    } else {
+      prevBtn.addEventListener('click', () => { goToSlide(currentIndex - 1); });
+      nextBtn.addEventListener('click', () => { nextSlide(); });
+    }
+  }
+
+  // Dots click handler
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', (e) => {
+      e.preventDefault();
+      goToSlide(index);
+    });
+  });
+
+  // Pause on hover
+  carousel.addEventListener('mouseenter', () => isPaused = true);
+  carousel.addEventListener('mouseleave', () => isPaused = false);
+  
+  // Pause during touch
+  carousel.addEventListener('touchstart', () => isPaused = true, {passive: true});
+  carousel.addEventListener('touchend', () => isPaused = false, {passive: true});
+
+  // Sync index on native scroll
+  let scrollTimeout;
+  track.addEventListener('scroll', () => {
+    if (scrollTimeout) cancelAnimationFrame(scrollTimeout);
+    scrollTimeout = requestAnimationFrame(() => {
+      const itemWidth = track.clientWidth;
+      if (itemWidth === 0) return;
+      const index = Math.round(track.scrollLeft / itemWidth);
+      if (index !== currentIndex) {
+        currentIndex = index;
+        updateCarousel();
+        // Reset auto play when user scrolls manually
+        if (!isPaused) {
+          progress = 0;
+          startTime = performance.now();
+        }
+      }
+    });
+  }, {passive: true});
+
+  // Start animation
+  animationFrameId = requestAnimationFrame(animate);
+});
+
+
+</script>

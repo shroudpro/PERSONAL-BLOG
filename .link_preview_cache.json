@@ -1,0 +1,126 @@
+{
+  "https://www.pixiv.net/artworks/149691446": {
+    "title": "アイスを食べているだけ！ - かてら",
+    "description": "标签: ケモノ · furry · ケモショタ · 獣人 · うちの子",
+    "image": "https://pixiv.cat/149691446.jpg",
+    "domain": "pixiv.net",
+    "is_r18": false,
+    "illust_id": "149691446",
+    "badges": [
+      {
+        "type": "artist",
+        "label": "かてら",
+        "icon": "palette"
+      },
+      {
+        "type": "pixiv",
+        "label": "ID: 149691446",
+        "icon": "image"
+      }
+    ]
+  },
+  "https://www.pixiv.net/artworks/149736454": {
+    "title": "無題 - ねむい",
+    "description": "标签: ケモノ · ケモショタ",
+    "image": "https://pixiv.cat/149736454.jpg",
+    "domain": "pixiv.net",
+    "is_r18": true,
+    "illust_id": "149736454",
+    "badges": [
+      {
+        "type": "r18",
+        "label": "R-18 (NSFW)",
+        "icon": "18_up_rating"
+      },
+      {
+        "type": "artist",
+        "label": "ねむい",
+        "icon": "palette"
+      },
+      {
+        "type": "pixiv",
+        "label": "ID: 149736454",
+        "icon": "image"
+      }
+    ]
+  },
+  "https://e621.net/posts/6234366": {
+    "title": "e621 #6234366 by kitune1tu",
+    "description": "物种: canid, canine, fox",
+    "image": "https://static1.e621.net/data/sample/65/cf/65cfdfff57129cbedf675dde52b33b2e.jpg",
+    "domain": "e621.net",
+    "is_r18": false,
+    "badges": [
+      {
+        "type": "rating-s",
+        "label": "Safe",
+        "icon": "verified_user"
+      },
+      {
+        "type": "artist",
+        "label": "kitune1tu",
+        "icon": "palette"
+      },
+      {
+        "type": "score",
+        "label": "+26",
+        "icon": "thumb_up"
+      }
+    ]
+  },
+  "https://e621.net/posts/3605521": {
+    "title": "e621 #3605521 by kuromu",
+    "description": "物种: ambiguous species, domestic cat, felid",
+    "image": "https://static1.e621.net/data/sample/ff/3f/ff3feb45db09d2151d942f83f53aebad.jpg",
+    "domain": "e621.net",
+    "is_r18": true,
+    "badges": [
+      {
+        "type": "r18",
+        "label": "R-18 (Explicit)",
+        "icon": "18_up_rating"
+      },
+      {
+        "type": "artist",
+        "label": "kuromu",
+        "icon": "palette"
+      },
+      {
+        "type": "score",
+        "label": "+1074",
+        "icon": "thumb_up"
+      }
+    ]
+  },
+  "https://e621.net/posts/6672234": {
+    "title": "e621 #6672234 by aellaellae",
+    "description": "物种: canid, canine, canis",
+    "image": "https://static1.e621.net/data/sample/7b/33/7b3387fd2a00e0838aa18fbebc3f007d.jpg",
+    "domain": "e621.net",
+    "is_r18": false,
+    "badges": [
+      {
+        "type": "rating-s",
+        "label": "Safe",
+        "icon": "verified_user"
+      },
+      {
+        "type": "artist",
+        "label": "aellaellae",
+        "icon": "palette"
+      },
+      {
+        "type": "score",
+        "label": "+28",
+        "icon": "thumb_up"
+      }
+    ]
+  },
+  "https://github.com/": {
+    "title": "GitHub: Let's build from here",
+    "description": "GitHub is where over 100 million developers shape the future of software, together. Contribute to the open source community, manage your Git repositories, review code like a pro, track bugs and feat...",
+    "image": "https://github.githubassets.com/assets/campaign-social-031d61680d67.png",
+    "domain": "github.com",
+    "is_r18": false
+  }
+}

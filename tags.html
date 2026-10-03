@@ -1,0 +1,88 @@
+---
+layout: default
+title: 标签
+permalink: /tags/
+---
+
+<main class="page-content" role="main">
+  <div class="page-header">
+    {% assign active_tag_count = 0 %}
+    {% for tag in site.tags %}
+      {% assign unarchived = tag[1] %}
+      {% if unarchived.size > 0 %}{% assign active_tag_count = active_tag_count | plus: 1 %}{% endif %}
+    {% endfor %}
+    <h1 class="page-title">🏷️ 标签</h1>
+    <p class="page-subtitle">共 {{ active_tag_count }} 个标签</p>
+  </div>
+
+  <!-- MD3 Collapsible Tag Cloud Card -->
+  <div class="md3-tag-cloud-card" id="tagCloudCard">
+    <div class="tag-cloud-card-header">
+      <div class="tag-cloud-header-left">
+        <span class="material-symbols-outlined tag-cloud-icon">sell</span>
+        <span class="tag-cloud-heading">标签云</span>
+        <span class="tag-cloud-counter">{{ active_tag_count }}</span>
+      </div>
+      <button type="button" class="md3-tag-collapse-btn" id="tagCollapseToggleBtn" aria-expanded="false" aria-label="展开或折叠标签列表">
+        <span class="toggle-text">展开全部</span>
+        <span class="material-symbols-outlined toggle-icon">expand_more</span>
+      </button>
+    </div>
+
+    <div class="tag-cloud-viewport collapsed" id="tagCloudViewport">
+      <div class="tag-cloud" id="tagCloudList">
+        {% assign sorted_tags = site.tags | sort %}
+        {% for tag in sorted_tags %}
+        {% assign unarchived_tag_posts = tag[1] %}
+        {% if unarchived_tag_posts.size == 0 %}{% continue %}{% endif %}
+        {% assign t = tag[0] %}
+        <a href="#{{ t }}" class="tag-item">
+          <span class="material-symbols-outlined tag-chip-icon">tag</span>
+          <span class="tag-name">{{ t }}</span>
+          <span class="tag-count">{{ unarchived_tag_posts.size }}</span>
+        </a>
+        {% endfor %}
+      </div>
+      <div class="tag-cloud-gradient-mask" id="tagCloudMask"></div>
+    </div>
+  </div>
+
+  <!-- Posts grouped by tag -->
+  <div class="gallery-container timeline-mode" id="tagPostGallery" style="margin-bottom: 24px;">
+    {% assign sorted_tags = site.tags | sort %}
+    {% for tag in sorted_tags %}
+      {% assign unarchived_tag_posts = tag[1] %}
+      {% if unarchived_tag_posts.size == 0 %}{% continue %}{% endif %}
+      {% assign t = tag[0] %}
+      
+      <div class="timeline-header" id="{{ t }}" data-tag="{{ t }}">
+        <span class="material-symbols-outlined header-icon">tag</span>
+        <span class="header-title">{{ t }}</span>
+        <span class="header-count">{{ unarchived_tag_posts.size }} 篇</span>
+      </div>
+      
+      {% for post in unarchived_tag_posts %}
+      <a class="post-card scroll-animate" data-tag="{{ t }}" href="{{ post.url | relative_url }}">
+        <div class="card-thumb-wrapper">
+          {% if post.image %}
+          <img class="card-thumb" src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
+          {% else %}
+          <div class="card-no-image">
+            <span class="material-symbols-outlined">article</span>
+          </div>
+          {% endif %}
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">{{ post.title }}</h2>
+          <div class="card-meta">
+            <span class="meta-item">
+              <span class="material-symbols-outlined">calendar_month</span>
+              {{ post.date | date: "%Y-%m-%d" }}
+            </span>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    {% endfor %}
+  </div>
+</main>

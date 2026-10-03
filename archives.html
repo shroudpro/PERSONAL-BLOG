@@ -1,0 +1,23 @@
+---
+layout: default
+title: 归档
+permalink: /archives/
+---
+
+<main class="page-content" role="main">
+  <div class="page-header">
+    {% assign archived_posts = site.posts | where_exp: "post", "post.archive == true" %}
+    <h1 class="page-title">📅 归档</h1>
+    <p class="page-subtitle">
+      {{ archived_posts.size }} 篇文章 ·
+      {{ archived_posts | map: 'date' | map: 'year' | uniq | size }} 年
+    </p>
+  </div>
+
+  {% include post-list.html posts=archived_posts empty_title="暂无归档" empty_body="被归档的文章会出现在这里" empty_icon="inventory_2" %}
+</main>
+
+<script>
+  window.activeTag = null; // No tag filter on this page
+</script>
+<script src="{{ '/assets/js/search.js' | relative_url }}"></script>

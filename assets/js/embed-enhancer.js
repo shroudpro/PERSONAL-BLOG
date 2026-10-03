@@ -1,0 +1,162 @@
+/**
+ * Embed Enhancer & MD3 Frosted Glass Media Mask
+ * Handles image masks, responsive media embeds, and social embed styling.
+ */
+(function() {
+  'use strict';
+
+  // MD3 Frosted Glass Mask for Images
+  function initImageMasks() {
+    var selector = '.article-content img.blur, .article-content img.spoiler, .article-content img.nsfw, .article-content img[data-blur]';
+    var images = document.querySelectorAll(selector);
+
+    images.forEach(function(img) {
+      if (img.closest('.md3-image-mask-wrapper')) return;
+
+      var wrapper = document.createElement('div');
+      wrapper.className = 'md3-image-mask-wrapper';
+
+      var parent = img.parentNode;
+      parent.insertBefore(wrapper, img);
+      wrapper.appendChild(img);
+
+      var reason = img.getAttribute('data-reason');
+      if (!reason) {
+        if (img.classList.contains('spoiler')) {
+          reason = '提示：包含剧透内容';
+        } else if (img.classList.contains('nsfw')) {
+          reason = '提示：包含敏感内容';
+        } else {
+          reason = '提示：图片已添加保护遮罩';
+        }
+      }
+
+      var overlay = document.createElement('div');
+      overlay.className = 'md3-image-mask-overlay';
+      overlay.setAttribute('role', 'button');
+      overlay.setAttribute('tabindex', '0');
+      overlay.setAttribute('aria-label', '点击查看图片');
+
+      overlay.innerHTML = 
+        '<div class="md3-mask-card">' +
+          '<span class="material-symbols-outlined md3-mask-icon">visibility_off</span>' +
+          '<span class="md3-mask-text">' + reason + '</span>' +
+          '<button type="button" class="md3-mask-reveal-btn">' +
+            '<span class="material-symbols-outlined">visibility</span>' +
+            '<span>点击显示</span>' +
+          '</button>' +
+        '</div>';
+
+      wrapper.appendChild(overlay);
+
+      function reveal(e) {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        wrapper.classList.add('is-revealed');
+      }
+
+      overlay.addEventListener('click', reveal);
+      overlay.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          reveal(e);
+        }
+      });
+      var btn = overlay.querySelector('.md3-mask-reveal-btn');
+      if (btn) btn.addEventListener('click', reveal);
+    });
+  }
+
+  // Universal Video & Embed Iframe Enhancer
+  function initEmbeds() {
+    var iframes = document.querySelectorAll('.article-content iframe');
+    iframes.forEach(function(iframe) {
+      var src = iframe.getAttribute('src') || '';
+      var isVideo = src.indexOf('youtube') !== -1 || 
+                    src.indexOf('youtu.be') !== -1 || 
+                    src.indexOf('bilibili.com') !== -1;
+
+      if (isVideo && !iframe.closest('.md3-video-embed')) {
+        var container = document.createElement('div');
+        container.className = 'md3-video-embed';
+        iframe.parentNode.insertBefore(container, iframe);
+        container.appendChild(iframe);
+      }
+
+      if (!iframe.hasAttribute('loading')) {
+        iframe.setAttribute('loading', 'lazy');
+      }
+    });
+  }
+
+  // R-18 / NSFW Card Image Mask Handler
+  function initCardMasks() {
+    var cardMasks = document.querySelectorAll('.card-image-wrapper.is-r18-masked');
+    cardMasks.forEach(function(wrapper) {
+      var overlay = wrapper.querySelector('.card-mask-overlay');
+      if (!overlay) return;
+
+      function unlock(e) {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        wrapper.classList.add('is-revealed');
+      }
+
+      overlay.addEventListener('click', unlock);
+      overlay.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          unlock(e);
+        }
+      });
+    });
+  }
+
+  // Enhance Social Embeds (Twitter & Reddit) with MD3 Rounded Corners
+  function enhanceSocialEmbeds() {
+    var targets = document.querySelectorAll(
+      '.twitter-embed iframe, .twitter-embed .twitter-tweet, .twitter-embed .twitter-tweet-rendered, ' +
+      '.reddit-embed iframe, .reddit-embed-bq, iframe[id^="twitter-widget-"], iframe[src*="reddit.com"]'
+    );
+    targets.forEach(function(el) {
+      el.style.setProperty('border-radius', '16px', 'important');
+      el.style.setProperty('overflow', 'hidden', 'important');
+      el.style.setProperty('transform', 'translateZ(0)', 'important');
+      if (el.tagName === 'IFRAME' && el.closest('.reddit-embed')) {
+        el.style.setProperty('border', '1px solid var(--md-sys-color-outline-variant, rgba(120, 120, 120, 0.25))', 'important');
+      }
+    });
+  }
+
+  // Observe dynamically inserted iframes (Twitter & Reddit widgets.js inject asynchronously)
+  if (typeof MutationObserver !== 'undefined') {
+    var observer = new MutationObserver(function() {
+      enhanceSocialEmbeds();
+    });
+    // Wait until document.body is available
+    if (document.body) {
+      observer.observe(document.body, { childList: true, subtree: true });
+    } else {
+      document.addEventListener('DOMContentLoaded', function() {
+        observer.observe(document.body, { childList: true, subtree: true });
+      });
+    }
+  }
+
+  // Initialize on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      initImageMasks();
+      initCardMasks();
+      initEmbeds();
+      enhanceSocialEmbeds();
+    });
+  } else {
+    initImageMasks();
+    initCardMasks();
+    initEmbeds();
+    enhanceSocialEmbeds();
+  }
+})();

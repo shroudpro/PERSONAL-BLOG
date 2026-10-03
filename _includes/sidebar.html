@@ -1,0 +1,215 @@
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar" role="navigation" aria-label="主导航">
+  <!-- Scrollbar -->
+  <div class="md3-sidebar-scrollbar" id="sidebarScrollbar">
+    <div class="md3-scrollbar-thumb" id="sidebarScrollbarThumb"></div>
+  </div>
+
+  <!-- Scrollable Content -->
+  <div class="sidebar-scroll" id="sidebarScroll">
+
+  <!-- Top bar -->
+  <div class="sidebar-top-bar">
+    <button class="icon-btn nav-rail-expand-btn" id="navRailExpandBtn" aria-label="展开侧边栏" style="display:none;">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <button class="theme-config-btn" id="themeDialogBtn" aria-haspopup="dialog" aria-label="主题与外观设置">
+      <span class="material-symbols-outlined">palette</span>
+      <span class="btn-label">主题设置</span>
+    </button>
+    <button class="sidebar-close-btn icon-btn" id="sidebarCloseBtn" aria-label="关闭侧边栏">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+  </div>
+
+  <!-- Profile -->
+  <div class="profile-section">
+    <div class="avatar-wrapper">
+      {% if site.author.avatar %}
+      <img class="avatar" src="{{ site.author.avatar | relative_url }}"
+           alt="{{ site.author.name }}" width="80" height="80"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="avatar" style="display:none;align-items:center;justify-content:center;background:var(--md-sys-color-primary-container);color:var(--md-sys-color-primary);font-size:2rem;font-weight:900">
+        {{ site.author.name | slice: 0 }}
+      </div>
+      {% else %}
+      <div class="avatar" style="display:flex;align-items:center;justify-content:center;background:var(--md-sys-color-primary-container);color:var(--md-sys-color-primary);font-size:2rem;font-weight:900">
+        {{ site.author.name | slice: 0 }}
+      </div>
+      {% endif %}
+    </div>
+
+    <h2 class="profile-name">{{ site.author.name }}</h2>
+    <p class="profile-bio">{{ site.author.bio }}</p>
+
+    <!-- Stats -->
+    {% assign total_posts_count = site.posts.size %}
+    {% assign unarchived_posts = site.posts | where_exp: "item", "item.archive != true" %}
+    {% assign active_posts_count = unarchived_posts.size %}
+    {% assign total_tags_count = site.tags.size %}
+    {% assign total_cats_count = site.categories.size %}
+    {% assign archived_posts = site.posts | where_exp: "item", "item.archive == true" %}
+    {% assign total_archives_count = archived_posts.size %}
+
+    <div class="profile-stats">
+      <div class="stat-item">
+        <span class="stat-value">{{ total_posts_count }}</span>
+        <span class="stat-label">文章</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">{{ total_tags_count }}</span>
+        <span class="stat-label">标签</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">{{ total_cats_count }}</span>
+        <span class="stat-label">分类</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar-divider"></div>
+
+  <!-- Navigation -->
+  <nav class="sidebar-nav" aria-label="博客导航">
+    {% for item in site.nav_links %}
+    <a href="{{ item.url | relative_url }}"
+       class="nav-item{% if page.url == item.url or page.url == item.url | append: '' %} active{% endif %}"
+       id="nav-{{ item.icon }}">
+      <span class="material-symbols-outlined" aria-hidden="true">{{ item.icon }}</span>
+      <span class="nav-label">{{ item.title }}</span>
+      {% if item.title == '文章' %}<span class="nav-badge">{{ active_posts_count }}</span>{% endif %}
+      {% if item.title == '标签' %}<span class="nav-badge">{{ total_tags_count }}</span>{% endif %}
+      {% if item.title == '分类' %}<span class="nav-badge">{{ total_cats_count }}</span>{% endif %}
+      {% if item.title == '归档' %}<span class="nav-badge">{{ total_archives_count }}</span>{% endif %}
+    </a>
+    {% endfor %}
+  </nav>
+
+  <div class="sidebar-divider"></div>
+
+  <!-- Footer -->
+  <div class="sidebar-footer">
+    <div class="social-links">
+      {% if site.social.github %}
+      <a class="social-btn" href="https://github.com/{{ site.social.github }}"
+         target="_blank" rel="noopener" aria-label="GitHub">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+      </a>
+      {% endif %}
+
+      {% if site.social.navigation %}
+      <a class="social-btn" href="{{ site.social.navigation }}"
+         target="_blank" rel="noopener" aria-label="导航页">
+        <span class="material-symbols-outlined">explore</span>
+      </a>
+      {% endif %}
+
+      {% if site.social.rss %}
+      <a class="social-btn" href="{{ '/feed.xml' | absolute_url }}" target="_blank" title="RSS">
+        <span class="material-symbols-outlined">rss_feed</span>
+      </a>
+      {% endif %}
+    </div>
+
+    <div class="sidebar-attribution" style="margin-top: 16px; font-size: 0.75rem; color: var(--md-sys-color-on-surface-variant); text-align: center; line-height: 1.5; letter-spacing: 0.02em;">
+      Based on ZGQ Inc.'s Jekyll theme · MIT License
+    </div>
+  </div>
+  </div>
+</aside>
+
+<!-- Theme Settings Dialog -->
+<div class="theme-dialog" id="themeDialog" role="dialog" aria-modal="true"
+     aria-labelledby="themeDialogTitle">
+
+  <!-- Scrim (click to close) -->
+  <div class="theme-dialog-scrim" aria-hidden="true"></div>
+
+  <!-- Glass Surface -->
+  <div class="theme-dialog-surface">
+
+    <!-- Title -->
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+      <span class="material-symbols-outlined"
+            style="color:var(--md-sys-color-primary);font-size:22px">palette</span>
+      <h2 class="theme-dialog-title" id="themeDialogTitle">主题与外观</h2>
+      <button class="icon-btn" id="themeCancelBtnX" aria-label="关闭"
+              style="margin-left:auto;width:36px;height:36px"
+              onclick="window.closeThemeDialog&&window.closeThemeDialog()">
+        <span class="material-symbols-outlined" style="font-size:20px">close</span>
+      </button>
+    </div>
+
+    <p class="theme-dialog-subtitle">自定义您的外观偏好</p>
+
+    <!-- Mode Selector -->
+    <p style="font-size:0.8125rem;font-weight:600;color:var(--md-sys-color-on-surface-variant);
+              letter-spacing:0.04em;text-transform:uppercase;margin-bottom:10px">显示模式</p>
+    <div class="mode-selector">
+      <button class="mode-btn" data-mode="light">
+        <span class="material-symbols-outlined">light_mode</span>亮色
+      </button>
+      <button class="mode-btn active" data-mode="system">
+        <span class="material-symbols-outlined">brightness_auto</span>自动
+      </button>
+      <button class="mode-btn" data-mode="dark">
+        <span class="material-symbols-outlined">dark_mode</span>暗色
+      </button>
+    </div>
+
+    <!-- Color Swatches -->
+<p style="font-size:0.8125rem;font-weight:600;color:var(--md-sys-color-on-surface-variant);
+              letter-spacing:0.04em;text-transform:uppercase;margin-bottom:10px">Monet 色彩</p>
+    <div class="color-swatches">
+      <button class="color-swatch selected" data-color="blue">
+        <div class="swatch-dot" style="background:#0061A4"></div>
+        <span>深海蔚蓝</span>
+      </button>
+      <button class="color-swatch" data-color="purple">
+        <div class="swatch-dot" style="background:#6750A4"></div>
+        <span>紫雾暮光</span>
+      </button>
+      <button class="color-swatch" data-color="green">
+        <div class="swatch-dot" style="background:#006E2C"></div>
+        <span>松柏林翠</span>
+      </button>
+      <button class="color-swatch" data-color="orange">
+        <div class="swatch-dot" style="background:#9D4000"></div>
+        <span>琥珀暖阳</span>
+      </button>
+      <button class="color-swatch" data-color="rose">
+        <div class="swatch-dot" style="background:#B3261E"></div>
+        <span>绯红印记</span>
+      </button>
+      <button class="color-swatch" data-color="teal">
+        <div class="swatch-dot" style="background:#006A6A"></div>
+        <span>黛青碧波</span>
+      </button>
+    </div>
+
+    <!-- Color palette preview strip -->
+    <div style="display:flex;gap:6px;height:28px;border-radius:var(--shape-medium);
+                overflow:hidden;margin-bottom:24px;border:1px solid
+                color-mix(in srgb,var(--md-sys-color-outline-variant) 40%,transparent)">
+      <div style="flex:1;background:var(--md-sys-color-primary);transition:background .3s"></div>
+      <div style="flex:1;background:var(--md-sys-color-secondary);transition:background .3s"></div>
+      <div style="flex:1;background:var(--md-sys-color-tertiary);transition:background .3s"></div>
+      <div style="flex:1;background:var(--md-sys-color-primary-container);transition:background .3s"></div>
+    </div>
+
+    <!-- Actions -->
+    <div class="theme-dialog-actions">
+      <button class="btn-text" id="themeCancelBtn">取消</button>
+      <button class="btn-filled" id="themeApplyBtn">
+        <span class="material-symbols-outlined" style="font-size:18px">check</span>
+        应用
+      </button>
+    </div>
+
+  </div>
+</div>

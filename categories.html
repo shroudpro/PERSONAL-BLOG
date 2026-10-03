@@ -1,0 +1,86 @@
+---
+layout: default
+title: 分类
+permalink: /categories/
+---
+
+<main class="page-content" role="main">
+  <div class="page-header">
+    {% assign active_cat_count = 0 %}
+    {% for cat in site.categories %}
+      {% assign unarchived = cat[1] %}
+      {% if unarchived.size > 0 %}{% assign active_cat_count = active_cat_count | plus: 1 %}{% endif %}
+    {% endfor %}
+    <h1 class="page-title">📁 分类</h1>
+    <p class="page-subtitle">共 {{ active_cat_count }} 个分类</p>
+  </div>
+
+  <!-- Category overview cards -->
+  <div class="md3-category-grid">
+    {% assign sorted_cats = site.categories | sort %}
+    {% for cat in sorted_cats %}
+    {% assign unarchived_cat_posts = cat[1] %}
+    {% if unarchived_cat_posts.size == 0 %}{% continue %}{% endif %}
+    <a href="#{{ cat[0] }}" class="md3-category-card">
+      <span class="material-symbols-outlined card-icon">folder_open</span>
+      <div class="card-content">
+        <div class="card-title">{{ cat[0] }}</div>
+        <div class="card-subtitle">{{ unarchived_cat_posts.size }} 篇</div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  <!-- Posts by category -->
+  <div class="gallery-container timeline-mode" id="catPostGallery" style="margin-bottom: 24px;">
+    {% assign sorted_cats = site.categories | sort %}
+    {% for cat in sorted_cats %}
+      {% assign unarchived_cat_posts = cat[1] %}
+      {% if unarchived_cat_posts.size == 0 %}{% continue %}{% endif %}
+      
+      <div class="timeline-header" id="{{ cat[0] }}" data-cat="{{ cat[0] }}">
+        <span class="material-symbols-outlined header-icon">folder</span>
+        <span class="header-title">{{ cat[0] }}</span>
+        <span class="header-count">{{ unarchived_cat_posts.size }} 篇</span>
+      </div>
+      
+      {% for post in unarchived_cat_posts %}
+      <a class="post-card scroll-animate" data-cat="{{ cat[0] }}" href="{{ post.url | relative_url }}">
+        <div class="card-thumb-wrapper">
+          {% if post.image %}
+          <img class="card-thumb" src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
+          {% else %}
+          <div class="card-no-image">
+            <span class="material-symbols-outlined">article</span>
+          </div>
+          {% endif %}
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">{{ post.title }}</h2>
+          <div class="card-meta">
+            <span class="meta-item">
+              <span class="material-symbols-outlined">calendar_month</span>
+              {{ post.date | date: "%Y-%m-%d" }}
+            </span>
+          </div>
+          {% if post.tags.size > 0 %}
+          <div class="card-tags">
+            {% for tag in post.tags limit:2 %}
+            <span class="chip chip-tonal">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </a>
+      {% endfor %}
+    {% endfor %}
+  </div>
+
+  {% if site.categories.size == 0 %}
+  <div class="empty-state">
+    <span class="material-symbols-outlined empty-icon">folder_off</span>
+    <p class="empty-title">暂无分类</p>
+    <p class="empty-body">在文章 Front Matter 中添加 category 字段来创建分类</p>
+  </div>
+  {% endif %}
+</main>
