@@ -1,6 +1,6 @@
 # Site Settings
-title: "个人博客"
-description: "个人博客。"
+title: "PERSONAL-BLOG"
+description: "PERSONAL-BLOG：基于 Jekyll 的静态个人博客。"
 url: "https://your-site.netlify.app"
 baseurl: ""
 lang: "zh-CN"

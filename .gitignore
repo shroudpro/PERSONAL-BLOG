@@ -1,45 +1,73 @@
-# Jekyll build output
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
+# Jekyll output and build caches
+/_site/
+/.sass-cache/
+/.jekyll-cache/
+/.jekyll-metadata
 
-# Ruby
-.bundle/
-vendor/
+# Netlify CLI local state
+/.netlify/
 
-# Environment variables (NEVER commit these)
+# Ruby/Bundler runtime files
+/.bundle/
+/vendor/
+# Keep Gemfile.lock tracked for reproducible Netlify builds.
+
+# Local secrets and credentials
 .env
-.env.local
-.env.production
-
-# Secrets
-secrets/
+.env.*
+!.env.example
+!.env.*.example
+/secrets/
 *.pem
 *.key
+*.p12
+*.pfx
+*.keystore
 
-# Editor
-.vscode/
-.idea/
+# Generated caches
+/.link_preview_cache.json
+/_data/lqip.json
+
+# Node/Python local dependencies and caches
+/node_modules/
+__pycache__/
+*.py[cod]
+/.venv/
+/venv/
+
+# Editors
+/.vscode/
+/.idea/
 *.swp
 *.swo
 *~
 
-# OS
+# Operating system files
 .DS_Store
 Thumbs.db
 desktop.ini
+ehthumbs.db
+.Spotlight-V100/
+.Trashes/
 
-# Logs
+# Logs and process state
 *.log
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 logs/
+*.pid
+*.pid.lock
 
-# Temp
-tmp/
-temp/
-
-# Local test files
-local/
-scratch/
+# Temporary/local test files
+/tmp/
+/temp/
+/local/
+/scratch/
+*.tmp
+*.temp
 task.md
 walkthrough.md
