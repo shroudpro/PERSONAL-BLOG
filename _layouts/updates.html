@@ -8,18 +8,26 @@ layout: default
     <p class="page-subtitle">博客历程</p>
   </div>
 
-  <div class="timeline" id="timeline">
-    {% for item in page.updates %}
-      <div class="timeline-item">
-        <div class="timeline-card">
-          <div class="timeline-date">{{ item.date }}</div>
-          <div class="timeline-content">
-            {{ item.content | markdownify }}
+  {% if page.updates and page.updates.size > 0 %}
+    <div class="timeline" id="timeline">
+      {% for item in page.updates %}
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <div class="timeline-date">{{ item.date }}</div>
+            <div class="timeline-content">
+              {{ item.content | markdownify }}
+            </div>
           </div>
         </div>
-      </div>
-    {% endfor %}
-  </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="empty-state">
+      <span class="material-symbols-outlined empty-icon">dynamic_feed</span>
+      <p class="empty-title">暂无动态</p>
+      <p class="empty-body">添加动态后会显示在这里</p>
+    </div>
+  {% endif %}
 
   <div style="margin-top: 2rem;">
     {{ content }}

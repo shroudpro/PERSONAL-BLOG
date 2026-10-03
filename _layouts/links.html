@@ -70,33 +70,41 @@ layout: default
     <p class="page-subtitle">友情链接</p>
   </div>
 
-  <nav class="links-nav-bar">
-    {% for section in page.friends %}
-      <a href="#{{ section.id }}" class="links-nav-item">{{ section.category }}</a>
-    {% endfor %}
-  </nav>
-
-  {% for section in page.friends %}
-    <h2 id="{{ section.id }}" class="links-section-title">{{ section.category }}</h2>
-    <div class="links-grid">
-      {% for link in section.items %}
-        <a href="{{ link.url }}" class="friend-card" target="_blank" rel="noopener">
-          {% if link.avatar %}
-            <img src="{{ link.avatar }}" class="friend-avatar" alt="{{ link.name }}">
-          {% else %}
-            {% assign color = link.color | default: "primary" %}
-            <div class="friend-avatar" style="background:var(--md-sys-color-{{ color }}-container);display:flex;align-items:center;justify-content:center;font-size:1.5rem">
-              {{ link.emoji }}
-            </div>
-          {% endif %}
-          <div class="friend-info">
-            <div class="friend-name">{{ link.name }}</div>
-            <div class="friend-desc">{{ link.desc }}</div>
-          </div>
-        </a>
+  {% if page.friends and page.friends.size > 0 %}
+    <nav class="links-nav-bar">
+      {% for section in page.friends %}
+        <a href="#{{ section.id }}" class="links-nav-item">{{ section.category }}</a>
       {% endfor %}
+    </nav>
+
+    {% for section in page.friends %}
+      <h2 id="{{ section.id }}" class="links-section-title">{{ section.category }}</h2>
+      <div class="links-grid">
+        {% for link in section.items %}
+          <a href="{{ link.url }}" class="friend-card" target="_blank" rel="noopener">
+            {% if link.avatar %}
+              <img src="{{ link.avatar }}" class="friend-avatar" alt="{{ link.name }}">
+            {% else %}
+              {% assign color = link.color | default: "primary" %}
+              <div class="friend-avatar" style="background:var(--md-sys-color-{{ color }}-container);display:flex;align-items:center;justify-content:center;font-size:1.5rem">
+                {{ link.emoji }}
+              </div>
+            {% endif %}
+            <div class="friend-info">
+              <div class="friend-name">{{ link.name }}</div>
+              <div class="friend-desc">{{ link.desc }}</div>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  {% else %}
+    <div class="empty-state">
+      <span class="material-symbols-outlined empty-icon">link_off</span>
+      <p class="empty-title">暂无友情链接</p>
+      <p class="empty-body">添加友链后会显示在这里</p>
     </div>
-  {% endfor %}
+  {% endif %}
 
   <div class="about-section" style="margin-top:32px">
     {{ content }}

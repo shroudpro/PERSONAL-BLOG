@@ -15,6 +15,7 @@ permalink: /tags/
     <p class="page-subtitle">共 {{ active_tag_count }} 个标签</p>
   </div>
 
+  {% if active_tag_count > 0 %}
   <!-- MD3 Collapsible Tag Cloud Card -->
   <div class="md3-tag-cloud-card" id="tagCloudCard">
     <div class="tag-cloud-card-header">
@@ -85,4 +86,12 @@ permalink: /tags/
       {% endfor %}
     {% endfor %}
   </div>
+
+  {% else %}
+  <div class="empty-state">
+    <span class="material-symbols-outlined empty-icon">sell</span>
+    <p class="empty-title">暂无标签</p>
+    <p class="empty-body">发布文章并添加 tags 后，标签会显示在这里</p>
+  </div>
+  {% endif %}
 </main>

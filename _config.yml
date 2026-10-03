@@ -78,3 +78,4 @@ exclude:
   - node_modules/
   - docs/
   - jekyll_blog_netlify_static_migration_plan.md
+  - HANDOFF.md
