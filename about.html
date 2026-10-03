@@ -8,7 +8,7 @@ permalink: /about/
 <main class="page-content" role="main">
   <div class="page-header">
     <h1 class="page-title">👤 关于本站</h1>
-    <p class="page-subtitle">PERSONAL-BLOG：从这里开始的静态个人博客</p>
+    <p class="page-subtitle">{{ site.title }}：从这里开始的静态个人博客</p>
   </div>
 
   <!-- Profile Card -->
@@ -26,7 +26,9 @@ permalink: /about/
       </div>
       <div>
         <h2 style="font-size:1.5rem;font-weight:800;color:var(--md-sys-color-on-surface);margin-bottom:4px">{{ site.author.name }}</h2>
+        {% if site.author.bio %}
         <p style="color:var(--md-sys-color-on-surface-variant);margin-bottom:12px">{{ site.author.bio }}</p>
+        {% endif %}
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           {% if site.social.navigation %}
           <a class="action-btn btn-tonal" href="{{ site.social.navigation }}" target="_blank" rel="noopener">
@@ -52,7 +54,7 @@ permalink: /about/
       关于本站
     </h2>
     <div class="article-content">
-      <p><strong>PERSONAL-BLOG</strong> 是一个由 <strong>Jekyll</strong> 生成、通过 <strong>Netlify</strong> 发布的静态个人博客。</p>
+      <p><strong>{{ site.title }}</strong> 是一个由 <strong>Jekyll</strong> 生成、通过 <strong>Netlify</strong> 发布的静态个人博客。</p>
       <p>站点使用 Markdown 编写内容，并保留文章、标签、分类、归档和订阅等常见博客功能。</p>
       <p>主要组成：</p>
       <ul>
@@ -70,9 +72,15 @@ permalink: /about/
       联系我
     </h2>
     <p style="font-size:0.9rem;color:var(--md-sys-color-on-surface-variant);line-height:1.7">
-      可在根目录的 <code>_config.yml</code> 中填写公开联系方式；配置后，相应入口会显示在这里。
+      可通过 GitHub 与我联系。
     </p>
     <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+      {% if site.social.github %}
+      <a class="action-btn btn-filled" href="https://github.com/{{ site.social.github }}" target="_blank" rel="noopener">
+        <span class="material-symbols-outlined">code</span>
+        GitHub
+      </a>
+      {% endif %}
       {% if site.social.navigation %}
       <a class="action-btn btn-filled" href="{{ site.social.navigation }}" target="_blank" rel="noopener">
         <span class="material-symbols-outlined">explore</span>

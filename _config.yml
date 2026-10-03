@@ -1,6 +1,6 @@
 # Site Settings
-title: "PERSONAL-BLOG"
-description: "PERSONAL-BLOG：基于 Jekyll 的静态个人博客。"
+title: "Shroud Blog"
+description: "Shroud Blog：基于 Jekyll 的静态个人博客。"
 url: "https://your-site.netlify.app"
 baseurl: ""
 lang: "zh-CN"
@@ -8,9 +8,9 @@ timezone: Asia/Shanghai
 
 # Author
 author:
-  name: "博主"
-  bio: "分享文章与日常记录。"
-  avatar: "/assets/images/avatar.png"
+  name: "Shroud"
+  bio: ""
+  avatar: ""
 
 # Navigation
 nav_links:
@@ -41,7 +41,7 @@ nav_links:
 
 # Social Links
 social:
-  github: ""
+  github: "shroudpro"
   navigation: ""
   rss: true
 

@@ -1,6 +1,6 @@
 {
-  "name": "PERSONAL-BLOG",
-  "short_name": "PERSONAL-BLOG",
+  "name": "Shroud Blog",
+  "short_name": "Shroud",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FDFCFF",

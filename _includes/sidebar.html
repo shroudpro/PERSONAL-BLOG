@@ -43,7 +43,7 @@
     </div>
 
     <h2 class="profile-name">{{ site.author.name }}</h2>
-    <p class="profile-bio">{{ site.author.bio }}</p>
+    {% if site.author.bio %}<p class="profile-bio">{{ site.author.bio }}</p>{% endif %}
 
     <!-- Stats -->
     {% assign total_posts_count = site.posts.size %}
