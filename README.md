@@ -1,6 +1,6 @@
-# 个人博客
+# PERSONAL-BLOG
 
-这是一个使用 Jekyll 生成的静态个人博客起始项目，保留现有 Material Design 3 界面、导航和博客页面。可在本地预览与构建，也可由 Netlify 自动构建并发布静态文件。
+PERSONAL-BLOG 是一个使用 Jekyll 生成的静态个人博客起始项目，保留现有 Material Design 3 界面、导航和博客页面。可在本地预览与构建，也可由 Netlify 自动构建并发布静态文件。
 
 主题基于 ZGQ Inc. 的 Jekyll Blog Theme 修改，并遵循 MIT License；原始归属与许可见 [`LICENSE`](LICENSE) 和站点页脚。
 

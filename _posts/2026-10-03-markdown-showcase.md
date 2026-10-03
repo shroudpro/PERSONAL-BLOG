@@ -68,7 +68,7 @@ puts greet("世界")
 
 ## 图片与隐藏内容
 
-![博客主题图标](/logo.png)
+![PERSONAL-BLOG 图标](/logo.png)
 
 点击下方内容可显示：||这是一个通用的 Markdown 隐藏内容示例。||
 
