@@ -1,0 +1,25 @@
+{
+  "id": "6d5a403735e09ddd",
+  "source_id": "meta-ai",
+  "source_name": "Meta AI",
+  "source_type": "official",
+  "title": "Reimagining Independence: How Meta’s AI Models Are Helping the University of Pittsburgh Transform Assistive Robotics",
+  "url": "https://ai.meta.com/blog/assistive-robotics-university-of-pittsburgh-sam-dino/",
+  "canonical_url": "https://ai.meta.com/blog/assistive-robotics-university-of-pittsburgh-sam-dino",
+  "published_at": null,
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": null,
+  "language": "en",
+  "summary_raw": null,
+  "content_text": null,
+  "tags_raw": [
+    "AI",
+    "Meta AI"
+  ],
+  "category_raw": null,
+  "image_url": "https://scontent-hkg1-1.xx.fbcdn.net/v/t39.2365-6/753694960_2219191542190533_6830137062160879015_n.png?_nc_cat=105&ccb=1-7&_nc_sid=e280be&_nc_ohc=GT7AyHm6mNMQ7kNvwEVF2E9&_nc_oc=AdrXFPTR5P_-cXjbhmX6jh5_7zUKUI5H5_AiE4_mtp_RmUwWSpThwRjxr97ohyQYESo&_nc_zt=14&_nc_ht=scontent-hkg1-1.xx&_nc_gid=ZdHFnq-r_0798eNhkPDtJg&_nc_ss=7b20f&oh=00_AQOKjF9uspn7U2MjN6zxggOkhUfkMKciZ8Ng-cZ0RvaL_Q&oe=6ADB58E0",
+  "image_alt": null,
+  "image_source": "https://ai.meta.com/blog/",
+  "content_hash": null,
+  "status": "collected"
+}

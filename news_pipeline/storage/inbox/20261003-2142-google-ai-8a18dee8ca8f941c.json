@@ -1,0 +1,26 @@
+{
+  "id": "8a18dee8ca8f941c",
+  "source_id": "google-ai",
+  "source_name": "Google AI / Google Blog - AI",
+  "source_type": "official",
+  "title": "Gemini 4 Argon: our next era of frontier intelligence",
+  "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+  "canonical_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon",
+  "published_at": "2026-09-30T00:00:00Z",
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": "Koray Kavukcuoglu",
+  "language": "en-us",
+  "summary_raw": "Announcing Gemini 4 Argon, our frontier model for real-world coding, enterprise knowledge work, and cyber defense, rolling out soon.",
+  "content_text": "Announcing Gemini 4 Argon, our frontier model for real-world coding, enterprise knowledge work, and cyber defense, rolling out soon.",
+  "tags_raw": [
+    "AI",
+    "Google",
+    "None"
+  ],
+  "category_raw": "None",
+  "image_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/g4_30-09-26_key-art_blog.width-1300.png",
+  "image_alt": null,
+  "image_source": "https://blog.google/",
+  "content_hash": "1d86e6d352240a2ac5816c160131fb287b5293a87319e875673071be9ca8ebc9",
+  "status": "collected"
+}

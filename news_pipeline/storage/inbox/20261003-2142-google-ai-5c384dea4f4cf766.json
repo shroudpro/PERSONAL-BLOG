@@ -1,0 +1,26 @@
+{
+  "id": "5c384dea4f4cf766",
+  "source_id": "google-ai",
+  "source_name": "Google AI / Google Blog - AI",
+  "source_type": "official",
+  "title": "See what 4 builders are making with Gemini 3.8 Flash",
+  "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-flash-developers/",
+  "canonical_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-flash-developers",
+  "published_at": "2026-09-28T00:00:00Z",
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": "Lindsey Lanquist",
+  "language": "en-us",
+  "summary_raw": "See what developers have built with Gemini 3.8 Flash, our most intelligent workhorse model, launched in early September.",
+  "content_text": "See what developers have built with Gemini 3.8 Flash, our most intelligent workhorse model, launched in early September.",
+  "tags_raw": [
+    "AI",
+    "Google",
+    "None"
+  ],
+  "category_raw": "None",
+  "image_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/See_what_5_developers_are_building_with_Gemin.width-1300.png",
+  "image_alt": null,
+  "image_source": "https://blog.google/",
+  "content_hash": "fe3d3f245cbba998d5cd02d37326519281c62188ea96de925cfa0d24df801315",
+  "status": "collected"
+}

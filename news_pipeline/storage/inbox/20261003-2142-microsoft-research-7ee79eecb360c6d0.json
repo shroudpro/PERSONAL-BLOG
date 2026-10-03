@@ -1,0 +1,26 @@
+{
+  "id": "7ee79eecb360c6d0",
+  "source_id": "microsoft-research",
+  "source_name": "Microsoft Research",
+  "source_type": "research",
+  "title": "Introducing Quine: An AI research system designed for the complexity of biology",
+  "url": "https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology/",
+  "canonical_url": "https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology",
+  "published_at": "2026-09-29T14:00:02Z",
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": "Nicolo Fusi, Jonathan M. Carlson",
+  "language": "en",
+  "summary_raw": "Biology doesn't operate in silos, and neither should the AI representation of it. Quine is an early-stage research effort to create a multimodal world model of biology. By connecting insights across biological scales and modalities, Quine helps scientists computationally search a space far larger than intuition allows and prioritize hypotheses before they reach the lab. Experimental results provide important feedback, helping researchers sharpen future research directions. The post Introducing Quine: An AI research system designed for the complexity of biology appeared first on Microsoft Research .",
+  "content_text": "Biology doesn't operate in silos, and neither should the AI representation of it. Quine is an early-stage research effort to create a multimodal world model of biology. By connecting insights across biological scales and modalities, Quine helps scientists computationally search a space far larger than intuition allows and prioritize hypotheses before they reach the lab. Experimental results provide important feedback, helping researchers sharpen future research directions. The post Introducing Quine: An AI research system designed for the complexity of biology appeared first on Microsoft Research .",
+  "tags_raw": [
+    "AI",
+    "Microsoft Research",
+    "Research Blog"
+  ],
+  "category_raw": "Research Blog",
+  "image_url": null,
+  "image_alt": null,
+  "image_source": null,
+  "content_hash": "f2832cfd9c55ea7899c5d2dfa96b82286656d2718c83247432d1d726fbb569a7",
+  "status": "collected"
+}

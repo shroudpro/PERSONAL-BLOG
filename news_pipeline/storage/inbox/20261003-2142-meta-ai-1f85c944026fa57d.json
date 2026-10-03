@@ -1,0 +1,25 @@
+{
+  "id": "1f85c944026fa57d",
+  "source_id": "meta-ai",
+  "source_name": "Meta AI",
+  "source_type": "official",
+  "title": "Scaling How We Build and Test Our Most Advanced AI",
+  "url": "https://ai.meta.com/blog/scaling-how-we-build-test-advanced-ai/",
+  "canonical_url": "https://ai.meta.com/blog/scaling-how-we-build-test-advanced-ai",
+  "published_at": null,
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": null,
+  "language": "en",
+  "summary_raw": "As we build more capable, personalized AI, reliability, security, and user protections are more important than ever.",
+  "content_text": "As we build more capable, personalized AI, reliability, security, and user protections are more important than ever.",
+  "tags_raw": [
+    "AI",
+    "Meta AI"
+  ],
+  "category_raw": null,
+  "image_url": "https://scontent-hkg4-1.xx.fbcdn.net/v/t39.2365-6/668130848_1453339552354697_3291493920555502062_n.png?_nc_cat=110&ccb=1-7&_nc_sid=e280be&_nc_ohc=Lp2ulkDC-EAQ7kNvwEB3sdw&_nc_oc=AdrwuybB5YnlpsKjtk0UvYeIj0YC669sDtUD_7-FYyucdkKnEiBrB0FaTS1JSJhJQZI&_nc_zt=14&_nc_ht=scontent-hkg4-1.xx&_nc_gid=yGgY4TZeXj_U-8TBA9q1yA&_nc_ss=7b20f&oh=00_AQOgta5sLtqxTpA6WuHdHdGDX3nlr_Rt0hWRfvOPDe0Vog&oe=6ADB4D6E",
+  "image_alt": null,
+  "image_source": "https://ai.meta.com/blog/",
+  "content_hash": "8de9971d68228b7cec8d31c84ca6fe4cb2337fde67162fb2551798fc3fcfe7f5",
+  "status": "collected"
+}

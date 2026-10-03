@@ -1,0 +1,164 @@
+sources:
+  - id: openai
+    name: OpenAI
+    type: official
+    homepage: https://openai.com/
+    enabled: true
+    priority: 1
+    fetch_method: sitemap
+    sitemap_urls:
+      - https://openai.com/sitemap.xml/product/
+      - https://openai.com/sitemap.xml/research/
+      - https://openai.com/sitemap.xml/safety/
+      - https://openai.com/sitemap.xml/company/
+    allowed_domains: [openai.com]
+    default_tags: [AI, OpenAI]
+    item_url_patterns: ["/index/"]
+    language: en
+    notes: >-
+      The homepage returned HTTP 403 from this workstation. The robots-published sitemap index and
+      product, research, safety, and company maps returned HTTP 200 and are the selected public endpoints.
+
+  - id: anthropic
+    name: Anthropic
+    type: official
+    homepage: https://www.anthropic.com/news
+    enabled: true
+    priority: 2
+    fetch_method: sitemap
+    sitemap_urls: [https://www.anthropic.com/sitemap.xml]
+    allowed_domains: [anthropic.com]
+    default_tags: [AI, Anthropic]
+    item_url_patterns: ["/news/[^?#]+$"]
+    language: en
+    notes: >-
+      The sitemap returned HTTP 200 with 544 URLs and 262 newsroom entries. The public /news page is an HTML fallback.
+
+  - id: google-deepmind
+    name: Google DeepMind
+    type: official
+    homepage: https://deepmind.google/blog/
+    enabled: true
+    priority: 3
+    fetch_method: sitemap
+    sitemap_urls: [https://deepmind.google/sitemap.xml]
+    allowed_domains: [deepmind.google]
+    default_tags: [AI, Google DeepMind]
+    item_url_patterns: ["/blog/[^?#]+$"]
+    exclude_url_patterns: ["/blog/$"]
+    language: en
+    notes: >-
+      The sitemap returned HTTP 200 with 738 URLs, including 350 blog paths. The public /blog/ listing is an HTML fallback.
+
+  - id: google-ai
+    name: Google AI / Google Blog - AI
+    type: official
+    homepage: https://blog.google/
+    enabled: true
+    priority: 4
+    fetch_method: sitemap
+    sitemap_urls: [https://blog.google/en-us/sitemap.xml]
+    allowed_domains: [blog.google]
+    default_tags: [AI, Google]
+    item_url_patterns: ["/innovation-and-ai/.+/.+/"]
+    language: en
+    notes: >-
+      The root sitemap index selected the English sitemap, which returned HTTP 200. The observed /feed path returned HTML, so it is not used as a feed.
+
+  - id: meta-ai
+    name: Meta AI
+    type: official
+    homepage: https://ai.meta.com/blog/
+    enabled: true
+    priority: 5
+    fetch_method: html
+    list_url: https://ai.meta.com/blog/
+    allowed_domains: [ai.meta.com]
+    default_tags: [AI, Meta AI]
+    item_url_patterns: ["/blog/[^?#]+/?$"]
+    exclude_url_patterns: ["/blog/?$"]
+    language: en
+    notes: >-
+      The public HTML listing returned HTTP 200. Its robots-published gzip sitemap returned HTTP 403 and is not used.
+
+  - id: microsoft-research
+    name: Microsoft Research
+    type: research
+    homepage: https://www.microsoft.com/en-us/research/
+    enabled: true
+    priority: 6
+    fetch_method: feed
+    feed_url: https://www.microsoft.com/en-us/research/feed/
+    allowed_domains: [microsoft.com]
+    default_tags: [AI, Microsoft Research]
+    language: en
+    notes: >-
+      The homepage advertises this RSS endpoint with rel=alternate; the feed returned HTTP 200 and 10 items.
+
+  - id: nvidia
+    name: NVIDIA Technical Blog
+    type: official
+    homepage: https://developer.nvidia.com/blog/
+    enabled: true
+    priority: 7
+    fetch_method: sitemap
+    sitemap_urls:
+      - https://developer.nvidia.com/blog/sitemap-news.xml
+      - https://developer.nvidia.com/blog/wp-sitemap.xml
+    allowed_domains: [developer.nvidia.com]
+    default_tags: [AI, NVIDIA]
+    item_url_patterns: ["/blog/[^?#]+/?$"]
+    exclude_url_patterns: ["/blog/$", "/blog/category/", "/blog/tag/"]
+    language: en
+    notes: >-
+      The robots-published sitemap index and WordPress blog sitemap returned HTTP 200. The Google News sitemap is checked first; the WordPress post maps provide older entries.
+
+  - id: huggingface
+    name: Hugging Face Blog
+    type: official
+    homepage: https://huggingface.co/blog
+    enabled: true
+    priority: 8
+    fetch_method: feed
+    feed_url: https://huggingface.co/blog/feed.xml
+    allowed_domains: [huggingface.co]
+    default_tags: [AI, Hugging Face, Open Source]
+    language: en
+    notes: >-
+      The homepage advertises this RSS endpoint with rel=alternate; the feed returned HTTP 200.
+
+  - id: mistral
+    name: Mistral AI News
+    type: official
+    homepage: https://mistral.ai/news/
+    enabled: true
+    priority: 9
+    fetch_method: feed
+    feed_url: https://mistral.ai/news/rss
+    allowed_domains: [mistral.ai]
+    default_tags: [AI, Mistral]
+    language: en
+    notes: >-
+      The homepage advertises this RSS endpoint with rel=alternate; the feed returned HTTP 200 and 88 items.
+
+  - id: arxiv
+    name: arXiv AI Research
+    type: research
+    homepage: https://arxiv.org/
+    enabled: true
+    priority: 10
+    fetch_method: arxiv
+    feed_url: https://rss.arxiv.org/rss/cs.AI
+    feed_urls:
+      - https://rss.arxiv.org/rss/cs.AI
+      - https://rss.arxiv.org/rss/cs.CL
+      - https://rss.arxiv.org/rss/cs.LG
+      - https://rss.arxiv.org/rss/cs.CV
+      - https://rss.arxiv.org/rss/cs.RO
+    allowed_domains: [arxiv.org]
+    default_tags: [AI, Research, arXiv]
+    categories: [cs.AI, cs.CL, cs.LG, cs.CV, cs.RO]
+    language: en
+    notes: >-
+      The official RSS host returned HTTP 200 for all five category feeds. The classic API paths are disallowed by robots.txt;
+      feeds returned valid but empty channels on 2026-10-03, a Saturday when the feed advertises skipDays.

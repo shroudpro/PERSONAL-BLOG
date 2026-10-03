@@ -1,0 +1,26 @@
+{
+  "id": "145709ee5f164f9f",
+  "source_id": "google-ai",
+  "source_name": "Google AI / Google Blog - AI",
+  "source_type": "official",
+  "title": "Google's AI ranks #1 for predicting flu hospitalizations.",
+  "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/google-science-ai-flu-forecasts/",
+  "canonical_url": "https://blog.google/innovation-and-ai/models-and-research/google-research/google-science-ai-flu-forecasts",
+  "published_at": "2026-09-30T00:00:00Z",
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": "Zahra Shamsi",
+  "language": "en-us",
+  "summary_raw": "Google’s science AI model was the best at forecasting flu-related hospital admissions, the Centers for Disease Control announced.",
+  "content_text": "Google’s science AI model was the best at forecasting flu-related hospital admissions, the Centers for Disease Control announced.",
+  "tags_raw": [
+    "AI",
+    "Google",
+    "None"
+  ],
+  "category_raw": "None",
+  "image_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Flusight_socialhero.max-1440x810.png",
+  "image_alt": null,
+  "image_source": "https://blog.google/",
+  "content_hash": "a2dface3aded2a9a47adf41697275bec8a9c62d905267c36c51b2a7b8c75b015",
+  "status": "collected"
+}

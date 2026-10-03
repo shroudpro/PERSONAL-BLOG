@@ -1,0 +1,26 @@
+{
+  "id": "e8e0bfab56ba1a2c",
+  "source_id": "google-ai",
+  "source_name": "Google AI / Google Blog - AI",
+  "source_type": "official",
+  "title": "Guided Vision in Gemini Live: built for accessibility",
+  "url": "https://blog.google/innovation-and-ai/products/gemini-app/guided-vision-gemini-live/",
+  "canonical_url": "https://blog.google/innovation-and-ai/products/gemini-app/guided-vision-gemini-live",
+  "published_at": "2026-10-01T00:00:00Z",
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": "Isha Sheth",
+  "language": "en-us",
+  "summary_raw": "Guided Vision in Gemini Live is built alongside the blind and low-vision community and offers real-time visual assistance.",
+  "content_text": "Guided Vision in Gemini Live is built alongside the blind and low-vision community and offers real-time visual assistance.",
+  "tags_raw": [
+    "AI",
+    "Google",
+    "None"
+  ],
+  "category_raw": "None",
+  "image_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/GuidedVision_hero.width-1300.png",
+  "image_alt": null,
+  "image_source": "https://blog.google/",
+  "content_hash": "1f54ae45e1dfd80b691d2a88037ca2a266d9791e92d6f1d3c29432b324eda526",
+  "status": "collected"
+}

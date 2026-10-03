@@ -1,0 +1,25 @@
+{
+  "id": "2e5ac777df91ff1b",
+  "source_id": "meta-ai",
+  "source_name": "Meta AI",
+  "source_type": "official",
+  "title": "Introducing Muse Spark: Scaling Towards Personal Superintelligence",
+  "url": "https://ai.meta.com/blog/introducing-muse-spark-msl/",
+  "canonical_url": "https://ai.meta.com/blog/introducing-muse-spark-msl",
+  "published_at": null,
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": null,
+  "language": "en",
+  "summary_raw": null,
+  "content_text": null,
+  "tags_raw": [
+    "AI",
+    "Meta AI"
+  ],
+  "category_raw": null,
+  "image_url": "https://scontent-hkg1-1.xx.fbcdn.net/v/t39.2365-6/667507363_1871749950191919_4996140970371485757_n.png?_nc_cat=109&ccb=1-7&_nc_sid=e280be&_nc_ohc=Bneo2T5J22AQ7kNvwH9gAbV&_nc_oc=AdqV_DwuTV7ZAgSehXKGeRHLusE-50tJAPFD4IsRKrmtrLzB1EZxbL8yMtgFyJIHV9Y&_nc_zt=14&_nc_ht=scontent-hkg1-1.xx&_nc_gid=nfvJPCK-1k11ah5uJzLP7Q&_nc_ss=7b20f&oh=00_AQPxQ_-dV5TWs3GFMwDmRPehtLXjwZ01fU4u5OnfoLUVfg&oe=6ADB51AC",
+  "image_alt": null,
+  "image_source": "https://ai.meta.com/blog/",
+  "content_hash": null,
+  "status": "collected"
+}

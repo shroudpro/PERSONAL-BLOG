@@ -1,0 +1,26 @@
+{
+  "id": "c3e5533bd61884fa",
+  "source_id": "google-ai",
+  "source_name": "Google AI / Google Blog - AI",
+  "source_type": "official",
+  "title": "Our Project Suncatcher prototype satellite is in orbit.",
+  "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-prototype/",
+  "canonical_url": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-prototype",
+  "published_at": "2026-10-01T00:00:00Z",
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": "Travis Beals",
+  "language": "en-us",
+  "summary_raw": "Google's prototype satellite for Project Suncatcher, built in partnership with Planet, launched into orbit aboard the Transporter-18 rideshare mission with SpaceX.",
+  "content_text": "Google's prototype satellite for Project Suncatcher, built in partnership with Planet, launched into orbit aboard the Transporter-18 rideshare mission with SpaceX.",
+  "tags_raw": [
+    "AI",
+    "Google",
+    "None"
+  ],
+  "category_raw": "None",
+  "image_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_videos/wagtailvideo-fgyv69rc_thumb.jpg",
+  "image_alt": null,
+  "image_source": "https://blog.google/",
+  "content_hash": "8c1d47179047111ac6db38aad21b54b99090910370241e0f09fa1c9c0343fe7e",
+  "status": "collected"
+}

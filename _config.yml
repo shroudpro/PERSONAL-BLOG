@@ -77,5 +77,7 @@ exclude:
   - .github/
   - node_modules/
   - docs/
+  - news_pipeline/
+  - tests/
   - jekyll_blog_netlify_static_migration_plan.md
   - HANDOFF.md

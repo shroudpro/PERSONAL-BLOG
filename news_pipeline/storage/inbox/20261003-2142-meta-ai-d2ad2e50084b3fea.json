@@ -1,0 +1,25 @@
+{
+  "id": "d2ad2e50084b3fea",
+  "source_id": "meta-ai",
+  "source_name": "Meta AI",
+  "source_type": "official",
+  "title": "How Meta’s AI Models Are Powering the First Wave of Genesis Mission Projects",
+  "url": "https://ai.meta.com/blog/genesis-mission-lawrence-berkeley-national-laboratory-segment-anything-dino/",
+  "canonical_url": "https://ai.meta.com/blog/genesis-mission-lawrence-berkeley-national-laboratory-segment-anything-dino",
+  "published_at": null,
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": null,
+  "language": "en",
+  "summary_raw": null,
+  "content_text": null,
+  "tags_raw": [
+    "AI",
+    "Meta AI"
+  ],
+  "category_raw": null,
+  "image_url": "https://scontent-hkg1-2.xx.fbcdn.net/v/t39.2365-6/752631850_918439901272497_2117962010845605116_n.png?_nc_cat=103&ccb=1-7&_nc_sid=e280be&_nc_ohc=LiEdTzmdy18Q7kNvwGhS96O&_nc_oc=AdqeAWb_XVADFyZlFo5JAmvVc9kl_sPtwXl9YPLmN_rduETXHEpZFJ-pN4g8SzmfE1M&_nc_zt=14&_nc_ht=scontent-hkg1-2.xx&_nc_gid=qnPkAV0VojGEO2zdHTlRMQ&_nc_ss=7b20f&oh=00_AQOjKiRbLAWgXNyp8tYXZzOhepzsyunQ9OEhLZyrwy6R6w&oe=6ADB46FE",
+  "image_alt": null,
+  "image_source": "https://ai.meta.com/blog/",
+  "content_hash": null,
+  "status": "collected"
+}

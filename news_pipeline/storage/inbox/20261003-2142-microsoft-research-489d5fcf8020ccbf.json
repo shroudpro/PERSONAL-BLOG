@@ -1,0 +1,26 @@
+{
+  "id": "489d5fcf8020ccbf",
+  "source_id": "microsoft-research",
+  "source_name": "Microsoft Research",
+  "source_type": "research",
+  "title": "Forecasting space weather risks on power grids",
+  "url": "https://www.microsoft.com/en-us/research/blog/forecasting-space-weather-risks-on-power-grids/",
+  "canonical_url": "https://www.microsoft.com/en-us/research/blog/forecasting-space-weather-risks-on-power-grids",
+  "published_at": "2026-09-30T16:00:00Z",
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": "Rohan Kannan",
+  "language": "en",
+  "summary_raw": "Extreme space-weather events can damage power systems on Earth and degrade GPS accuracy and satellite operations. A new machine learning system can predict where damage is likely to occur 30-60 minutes before a storm arrives. The post Forecasting space weather risks on power grids appeared first on Microsoft Research .",
+  "content_text": "Extreme space-weather events can damage power systems on Earth and degrade GPS accuracy and satellite operations. A new machine learning system can predict where damage is likely to occur 30-60 minutes before a storm arrives. The post Forecasting space weather risks on power grids appeared first on Microsoft Research .",
+  "tags_raw": [
+    "AI",
+    "Microsoft Research",
+    "Research Blog"
+  ],
+  "category_raw": "Research Blog",
+  "image_url": null,
+  "image_alt": null,
+  "image_source": null,
+  "content_hash": "b5e244466628cb169ea7dcc5e455f248c4047c644cb353bcaf94bc1eddd45b0d",
+  "status": "collected"
+}

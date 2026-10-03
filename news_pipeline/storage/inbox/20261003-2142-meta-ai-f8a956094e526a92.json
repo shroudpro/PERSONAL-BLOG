@@ -1,0 +1,25 @@
+{
+  "id": "f8a956094e526a92",
+  "source_id": "meta-ai",
+  "source_name": "Meta AI",
+  "source_type": "official",
+  "title": "Introducing Muse Spark 1.1",
+  "url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+  "canonical_url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api",
+  "published_at": null,
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": null,
+  "language": "en",
+  "summary_raw": null,
+  "content_text": null,
+  "tags_raw": [
+    "AI",
+    "Meta AI"
+  ],
+  "category_raw": null,
+  "image_url": "https://scontent-hkg1-2.xx.fbcdn.net/v/t39.2365-6/741906678_873652302465180_7764547737953411008_n.png?_nc_cat=104&ccb=1-7&_nc_sid=e280be&_nc_ohc=anZdKHLiu-4Q7kNvwHM-o-Q&_nc_oc=Adp_UwCmrQ03lwNHwf7yl_f0V3cyEVZoTY6FubzCr1PumxlcrvjFCqYCEAOaRQh3ufM&_nc_zt=14&_nc_ht=scontent-hkg1-2.xx&_nc_gid=Q3d2hoIheQHsdjqy1wc1uA&_nc_ss=7b20f&oh=00_AQOdUaLuuBNFGmBMlS4wBZGhPmR7m9-d6BiEoESINx3XSA&oe=6ADB47A6",
+  "image_alt": null,
+  "image_source": "https://ai.meta.com/blog/",
+  "content_hash": null,
+  "status": "collected"
+}

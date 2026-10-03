@@ -27,6 +27,7 @@
 # Generated caches
 /.link_preview_cache.json
 /_data/lqip.json
+/news_pipeline/storage/raw/
 
 # Node/Python local dependencies and caches
 /node_modules/

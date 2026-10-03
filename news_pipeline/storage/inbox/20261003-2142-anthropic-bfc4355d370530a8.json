@@ -1,0 +1,25 @@
+{
+  "id": "bfc4355d370530a8",
+  "source_id": "anthropic",
+  "source_name": "Anthropic",
+  "source_type": "official",
+  "title": "Claude Frontier Academy: $100M to train 10,000 engineers",
+  "url": "https://www.anthropic.com/news/claude-frontier-academy",
+  "canonical_url": "https://www.anthropic.com/news/claude-frontier-academy",
+  "published_at": "2026-10-02T23:01:00Z",
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": "https://www.anthropic.com",
+  "language": "en",
+  "summary_raw": "Claude Frontier Academy trains Frontier Deployed Engineers to the standard of Anthropic’s own — a $100 million commitment to train 10,000 by the end of 2027.",
+  "content_text": "Claude Frontier Academy trains Frontier Deployed Engineers to the standard of Anthropic’s own — a $100 million commitment to train 10,000 by the end of 2027.",
+  "tags_raw": [
+    "AI",
+    "Anthropic"
+  ],
+  "category_raw": null,
+  "image_url": "https://www.anthropic.com/api/opengraph-illustration?name=Hand%20Build&backgroundColor=heather",
+  "image_alt": "Stylized hand constructing architectural structure with geometric building elements and foundational components",
+  "image_source": "https://www.anthropic.com/news",
+  "content_hash": "a43cfb2fca9e9dab06ff52fe62921298db8f384a4c8c46e58901afbdc275be15",
+  "status": "collected"
+}

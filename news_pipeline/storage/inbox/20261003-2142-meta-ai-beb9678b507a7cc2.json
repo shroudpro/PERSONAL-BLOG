@@ -1,0 +1,25 @@
+{
+  "id": "beb9678b507a7cc2",
+  "source_id": "meta-ai",
+  "source_name": "Meta AI",
+  "source_type": "official",
+  "title": "Mapping the World's Forests with Greater Precision: Introducing Canopy Height Maps v2",
+  "url": "https://ai.meta.com/blog/world-resources-institute-dino-canopy-height-maps-v2/",
+  "canonical_url": "https://ai.meta.com/blog/world-resources-institute-dino-canopy-height-maps-v2",
+  "published_at": null,
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": null,
+  "language": "en",
+  "summary_raw": "Today, in partnership with the World Resources Institute, we’re announcing Canopy Height Maps v2 (CHMv2): an open source model and world-scale maps...",
+  "content_text": "Today, in partnership with the World Resources Institute, we’re announcing Canopy Height Maps v2 (CHMv2): an open source model and world-scale maps...",
+  "tags_raw": [
+    "AI",
+    "Meta AI"
+  ],
+  "category_raw": null,
+  "image_url": "https://scontent-hkg4-2.xx.fbcdn.net/v/t39.2365-6/644822799_1500169394861918_3213642176014981812_n.png?_nc_cat=111&ccb=1-7&_nc_sid=e280be&_nc_ohc=KvG4UjJi-5oQ7kNvwG99e_h&_nc_oc=Adp-8wjtJngZ2_UdTNphqRzKDh7MYdk4Bx7zSQYfr7GXqjsffJz2fJUxepSWmOXx-20&_nc_zt=14&_nc_ht=scontent-hkg4-2.xx&_nc_gid=jmJinq2p8kiQmCyPT5DQTg&_nc_ss=7b20f&oh=00_AQMegwlQH2k8Wl-s34ise8EKgtxHjJCYcG9ZTcrGk7qktA&oe=6ADB5586",
+  "image_alt": null,
+  "image_source": "https://ai.meta.com/blog/",
+  "content_hash": "797f3b05369d17975592975a8b0088235ce85336237fe5b000754a95241b3f0e",
+  "status": "collected"
+}

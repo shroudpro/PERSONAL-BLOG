@@ -1,0 +1,25 @@
+{
+  "id": "ee4dc087c2001832",
+  "source_id": "mistral",
+  "source_name": "Mistral AI News",
+  "source_type": "official",
+  "title": "Hallo, Deutschland!",
+  "url": "https://mistral.ai/news/hallo-deutschland/",
+  "canonical_url": "https://mistral.ai/news/hallo-deutschland",
+  "published_at": "2026-09-28T15:57:59Z",
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": null,
+  "language": "en",
+  "summary_raw": "Mistral opens a Munich hub for Physics AI and Industrial AI research, partnering with German industry.",
+  "content_text": "Mistral opens a Munich hub for Physics AI and Industrial AI research, partnering with German industry.",
+  "tags_raw": [
+    "AI",
+    "Mistral"
+  ],
+  "category_raw": null,
+  "image_url": null,
+  "image_alt": null,
+  "image_source": null,
+  "content_hash": "94f2bdeeaa0267b9c34d2b72e1bed2b47e5bfe587382b27c74ced6c0174ec993",
+  "status": "collected"
+}

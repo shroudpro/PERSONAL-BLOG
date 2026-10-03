@@ -1,0 +1,26 @@
+{
+  "id": "56c490db040147f1",
+  "source_id": "huggingface",
+  "source_name": "Hugging Face Blog",
+  "source_type": "official",
+  "title": "AutoSynthData: Generating Training Data for Enterprise Agents",
+  "url": "https://huggingface.co/blog/ServiceNow-AI/autosynthdata",
+  "canonical_url": "https://huggingface.co/blog/ServiceNow-AI/autosynthdata",
+  "published_at": "2026-10-02T04:01:31Z",
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": null,
+  "language": "en",
+  "summary_raw": null,
+  "content_text": null,
+  "tags_raw": [
+    "AI",
+    "Hugging Face",
+    "Open Source"
+  ],
+  "category_raw": null,
+  "image_url": null,
+  "image_alt": null,
+  "image_source": null,
+  "content_hash": null,
+  "status": "collected"
+}

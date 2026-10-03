@@ -1,0 +1,26 @@
+{
+  "id": "afa8c33f8eb7996a",
+  "source_id": "huggingface",
+  "source_name": "Hugging Face Blog",
+  "source_type": "official",
+  "title": "Getting the Source Right, Not Just the Fact: Source-Aware Verification for MCP Agents",
+  "url": "https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source",
+  "canonical_url": "https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source",
+  "published_at": "2026-09-29T13:07:00Z",
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": null,
+  "language": "en",
+  "summary_raw": null,
+  "content_text": null,
+  "tags_raw": [
+    "AI",
+    "Hugging Face",
+    "Open Source"
+  ],
+  "category_raw": null,
+  "image_url": null,
+  "image_alt": null,
+  "image_source": null,
+  "content_hash": null,
+  "status": "collected"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "c08402b8f22a4b15",
+  "source_id": "anthropic",
+  "source_name": "Anthropic",
+  "source_type": "official",
+  "title": "Barclays scales Claude to upgrade operations and improve client experience",
+  "url": "https://www.anthropic.com/news/barclays-scales-claude",
+  "canonical_url": "https://www.anthropic.com/news/barclays-scales-claude",
+  "published_at": "2026-10-01T15:19:00Z",
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": "https://www.anthropic.com",
+  "language": "en",
+  "summary_raw": "Barclays, the British universal bank, is expanding its strategic collaboration with Anthropic to integrate secure, enterprise-grade AI systems across its global operations.",
+  "content_text": "Barclays, the British universal bank, is expanding its strategic collaboration with Anthropic to integrate secure, enterprise-grade AI systems across its global operations.",
+  "tags_raw": [
+    "AI",
+    "Anthropic"
+  ],
+  "category_raw": null,
+  "image_url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/6d4a0d28992ade92d6fa63646fd9c9d318245c6c-2400x1260.jpg",
+  "image_alt": "Anthropic logo",
+  "image_source": "https://www.anthropic.com/news",
+  "content_hash": "fbd1b0934607b169b2c2b86bdb1bb71bbb7b5ae1208c22f166a03ee03acff3c6",
+  "status": "collected"
+}

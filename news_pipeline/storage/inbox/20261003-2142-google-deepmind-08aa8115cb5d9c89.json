@@ -1,0 +1,26 @@
+{
+  "id": "08aa8115cb5d9c89",
+  "source_id": "google-deepmind",
+  "source_name": "Google DeepMind",
+  "source_type": "official",
+  "title": "SynthID Bio: Watermarking methods for synthetic biology",
+  "url": "https://deepmind.google/blog/introducing-synthid-bio/",
+  "canonical_url": "https://deepmind.google/blog/introducing-synthid-bio",
+  "published_at": "2026-09-30T15:00:00Z",
+  "fetched_at": "2026-10-03T13:42:00Z",
+  "author": "Pushmeet Kohli, David Stutz, Ali Cowen-Rivers and Jeremy Ratcliff",
+  "language": "en",
+  "summary_raw": "SynthID Bio is a family of watermarking methods developed specifically for synthetic biology to strengthen biosecurity and scientific integrity.",
+  "content_text": "SynthID Bio is a family of watermarking methods developed specifically for synthetic biology to strengthen biosecurity and scientific integrity.",
+  "tags_raw": [
+    "AI",
+    "Google DeepMind",
+    "Science"
+  ],
+  "category_raw": "Science",
+  "image_url": "https://lh3.googleusercontent.com/wNhpZFcXYLXFb6alIt0H5NRvEoso2ONZDhPKz6MYEcGltHPbDeHddzkvv5GXl3abW1PZ5ci1Y9lKoYOIjMuHLxATXfWp88-Al6eEmDENrpejIFeimw=w1200-h630-n-nu-rw",
+  "image_alt": null,
+  "image_source": "https://deepmind.google/blog/",
+  "content_hash": "bca555da268d3fdaa473d6f164dba8bfc8f9b4d71e55f0c944fc79343d0b937a",
+  "status": "collected"
+}
