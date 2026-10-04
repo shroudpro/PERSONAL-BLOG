@@ -8,7 +8,7 @@ layout: default
 {% if post.image %}
 <div class="post-hero" id="postHero">
   <div class="hero-sweep-beam"></div>
-  <img class="hero-image" src="{{ post.image }}" alt="{{ post.title }}" loading="eager" decoding="async">
+  <img class="hero-image" src="{{ post.image }}" alt="{{ post.image_alt | default: post.title }}" loading="eager" decoding="async">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     {% if post.tags.size > 0 %}

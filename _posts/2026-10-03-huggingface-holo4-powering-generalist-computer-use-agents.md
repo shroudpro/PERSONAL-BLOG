@@ -10,13 +10,15 @@ tags:
 - Holo4
 - 开源权重
 - Computer Use
-image: ''
+image: /assets/news/2026/10/holo4-powering-generalist-computer-use-agents.webp
 source_name: Hugging Face Blog
 source_url: https://huggingface.co/blog/Hcompany/holo4
 source_published_at: '2026-09-28T09:44:05Z'
 ai_generated: true
 reviewed: false
 toc: true
+image_alt: Hugging Face Blog：Holo4 发布：一个模型跨 GUI、代码、MCP 与 API 操作（开源项目，AI 资讯封面）
+image_source_url: ''
 ---
 
 ## 发生了什么

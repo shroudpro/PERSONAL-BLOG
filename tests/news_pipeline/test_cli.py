@@ -90,6 +90,16 @@ def test_cli_parser_supports_edit_and_publish_dry_runs() -> None:
     assert (publish_args.command, publish_args.limit, publish_args.dry_run) == ("publish", 5, True)
 
 
+def test_cli_parser_supports_media_prepare_selection() -> None:
+    parser = build_parser()
+
+    args = parser.parse_args(["media", "prepare", "--news-id", "news-001", "--dry-run"])
+
+    assert (args.command, args.media_command, args.news_ids, args.dry_run) == (
+        "media", "prepare", ["news-001"], True
+    )
+
+
 def test_edit_dry_run_does_not_write_report_or_drafts(tmp_path) -> None:
     inbox_dir = tmp_path / "storage" / "inbox"
     inbox_dir.mkdir(parents=True)
@@ -164,9 +174,25 @@ def test_publish_cli_dry_run_keeps_publication_files_unchanged(tmp_path) -> None
         source_url="https://example.com/news/model",
         source_published_at="2026-10-02T12:00:00Z",
         body_markdown="## 发生了什么\n\n更新内容。\n\n## 来源\n\n[官方原文](https://example.com/news/model)\n",
+        image="/assets/news/2026/10/verified-model-update.webp",
+        image_alt="模型更新封面",
     )
     (draft_dir / "news-001.json").write_text(json.dumps(article.to_dict()), encoding="utf-8")
     repo_dir = tmp_path / "repo"
+    image_path = repo_dir / "assets" / "news" / "2026" / "10" / "verified-model-update.webp"
+    image_path.parent.mkdir(parents=True)
+    image_path.write_bytes(b"test cover")
+    (repo_dir / "assets" / "news" / "manifest.json").write_text(
+        json.dumps({
+            "schema_version": 1,
+            "covers": [{
+                "post_slug": "verified-model-update",
+                "local_path": "/assets/news/2026/10/verified-model-update.webp",
+                "sha256": "test",
+            }],
+        }),
+        encoding="utf-8",
+    )
 
     result = run_publish(
         pipeline_root=tmp_path,

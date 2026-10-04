@@ -1,0 +1,3 @@
+# Only list image assets with explicit reuse permission and evidence.
+# An empty list intentionally makes all current articles use generated covers.
+approved_assets: []

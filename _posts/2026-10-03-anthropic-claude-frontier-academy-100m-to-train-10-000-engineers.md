@@ -10,13 +10,15 @@ tags:
 - 企业 AI
 - AI 人才
 - 工程实践
-image: ''
+image: /assets/news/2026/10/claude-frontier-academy-100m-to-train-10-000-engineers.webp
 source_name: Anthropic
 source_url: https://www.anthropic.com/news/claude-frontier-academy
 source_published_at: '2026-10-02T23:01:00Z'
 ai_generated: true
 reviewed: false
 toc: true
+image_alt: Anthropic：Anthropic 投入 1 亿美元，计划在 2027 年底前培养 1 万名企业 AI 工程师（行业动态，AI 资讯封面）
+image_source_url: ''
 ---
 
 ## 发生了什么

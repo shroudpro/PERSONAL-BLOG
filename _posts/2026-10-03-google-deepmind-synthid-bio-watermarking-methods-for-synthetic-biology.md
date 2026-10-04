@@ -10,13 +10,15 @@ tags:
 - 合成生物学
 - 生物安全
 - 数字水印
-image: ''
+image: /assets/news/2026/10/synthid-bio-watermarking-methods-for-synthetic-biology.webp
 source_name: Google DeepMind
 source_url: https://deepmind.google/blog/introducing-synthid-bio
 source_published_at: '2026-09-30T15:00:00Z'
 ai_generated: true
 reviewed: false
 toc: true
+image_alt: Google DeepMind：SynthID Bio：为 AI 设计蛋白质加入可验证水印（安全与治理，AI 资讯封面）
+image_source_url: ''
 ---
 
 ## 发生了什么

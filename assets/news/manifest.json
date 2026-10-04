@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "covers": [
+    {
+      "post_slug": "claude-frontier-academy-100m-to-train-10-000-engineers",
+      "local_path": "/assets/news/2026/10/claude-frontier-academy-100m-to-train-10-000-engineers.webp",
+      "original_url": null,
+      "source_page": null,
+      "sha256": "ef4b921efca517cf9249d4d7ecc61ff0e37972e198577202a8f18e6feb514a55",
+      "width": 1280,
+      "height": 720,
+      "generated": true,
+      "reuse_basis": "generated fallback",
+      "evidence_url": null
+    },
+    {
+      "post_slug": "gemini-4-argon-our-next-era-of-frontier-intelligence",
+      "local_path": "/assets/news/2026/10/gemini-4-argon-our-next-era-of-frontier-intelligence.webp",
+      "original_url": null,
+      "source_page": null,
+      "sha256": "abdef4a7e38804a86f6455b84b55e405c751ade5b19cd2fec2a549088dfe3f0b",
+      "width": 1280,
+      "height": 720,
+      "generated": true,
+      "reuse_basis": "generated fallback",
+      "evidence_url": null
+    },
+    {
+      "post_slug": "holo4-powering-generalist-computer-use-agents",
+      "local_path": "/assets/news/2026/10/holo4-powering-generalist-computer-use-agents.webp",
+      "original_url": null,
+      "source_page": null,
+      "sha256": "ce82bb10306ffd11484c2b2695787cc44ba0f0263243740d0ecd54d1b9c8d2e1",
+      "width": 1280,
+      "height": 720,
+      "generated": true,
+      "reuse_basis": "generated fallback",
+      "evidence_url": null
+    },
+    {
+      "post_slug": "introducing-quine-an-ai-research-system-designed-for-the-complex",
+      "local_path": "/assets/news/2026/10/introducing-quine-an-ai-research-system-designed-for-the-complex.webp",
+      "original_url": null,
+      "source_page": null,
+      "sha256": "e3e038ac862e8961ac5e1cd320332674f36107bc8288a8a16934b91d6c08a3b5",
+      "width": 1280,
+      "height": 720,
+      "generated": true,
+      "reuse_basis": "generated fallback",
+      "evidence_url": null
+    },
+    {
+      "post_slug": "open-sourcing-astabrief-the-fast-report-generation-model-in-asta",
+      "local_path": "/assets/news/2026/10/open-sourcing-astabrief-the-fast-report-generation-model-in-asta.webp",
+      "original_url": null,
+      "source_page": null,
+      "sha256": "99808981ec5a46e5eb8aa52ce9a557fd052a0bccb3d86ae02cb57a9b4f4ef155",
+      "width": 1280,
+      "height": 720,
+      "generated": true,
+      "reuse_basis": "generated fallback",
+      "evidence_url": null
+    },
+    {
+      "post_slug": "our-project-suncatcher-prototype-satellite-is-in-orbit",
+      "local_path": "/assets/news/2026/10/our-project-suncatcher-prototype-satellite-is-in-orbit.webp",
+      "original_url": null,
+      "source_page": null,
+      "sha256": "25c92ae4bf30e8f11d5298c3daac5a507f35199d200523d9d456087ee5e75312",
+      "width": 1280,
+      "height": 720,
+      "generated": true,
+      "reuse_basis": "generated fallback",
+      "evidence_url": null
+    },
+    {
+      "post_slug": "synthid-bio-watermarking-methods-for-synthetic-biology",
+      "local_path": "/assets/news/2026/10/synthid-bio-watermarking-methods-for-synthetic-biology.webp",
+      "original_url": null,
+      "source_page": null,
+      "sha256": "a1753d1a4e88a2fab77145494d41c689205007e7c226fd0d3873a8a450fbca80",
+      "width": 1280,
+      "height": 720,
+      "generated": true,
+      "reuse_basis": "generated fallback",
+      "evidence_url": null
+    }
+  ]
+}

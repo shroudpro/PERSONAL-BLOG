@@ -5,7 +5,8 @@ from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from threading import Lock
 from typing import Callable
-from urllib.parse import urljoin, urlsplit, urlunsplit
+from posixpath import normpath
+from urllib.parse import unquote, urljoin, urlsplit, urlunsplit
 from urllib.robotparser import RobotFileParser
 
 import requests
@@ -62,6 +63,22 @@ class HttpFetcher:
         except ValueError as exc:
             raise FetchError(f"Unsupported URL: {url}", url=url) from exc
 
+    def _validate_url_prefix(self, url: str, allowed_url_prefixes: tuple[str, ...] | list[str]) -> None:
+        parsed = urlsplit(url)
+        decoded_path = normpath(unquote(parsed.path))
+        for prefix in allowed_url_prefixes:
+            allowed = urlsplit(prefix)
+            if (
+                parsed.scheme != allowed.scheme
+                or parsed.hostname != allowed.hostname
+                or parsed.port != allowed.port
+            ):
+                continue
+            allowed_path = normpath(unquote(allowed.path))
+            if decoded_path == allowed_path or decoded_path.startswith(allowed_path.rstrip("/") + "/"):
+                return
+        raise FetchError(f"URL is outside allowed URL prefixes: {url}", url=url)
+
     def _wait_for_host(self, host: str, delay: float) -> None:
         with self._lock:
             remaining = delay - (time.monotonic() - self._last_request.get(host, 0.0))
@@ -117,13 +134,22 @@ class HttpFetcher:
                     pass
         return float(min(2**attempt, 8))
 
-    def get(self, url: str, *, allowed_domains: tuple[str, ...] | list[str]) -> requests.Response:
+    def get(
+        self,
+        url: str,
+        *,
+        allowed_domains: tuple[str, ...] | list[str],
+        allowed_url_prefixes: tuple[str, ...] | list[str] = (),
+        stream: bool = False,
+    ) -> requests.Response:
         redirect_statuses = {301, 302, 303, 307, 308}
         current_url = url
         redirect_count = 0
 
         while True:
             self._validate_url(current_url, allowed_domains)
+            if allowed_url_prefixes:
+                self._validate_url_prefix(current_url, allowed_url_prefixes)
             robots = self._robots_for(current_url)
             if not robots.can_fetch(self.user_agent, current_url):
                 raise FetchError(f"robots.txt disallows URL: {current_url}", url=current_url)
@@ -145,6 +171,7 @@ class HttpFetcher:
                         },
                         timeout=self.timeout,
                         allow_redirects=False,
+                        stream=stream,
                     )
                 except requests.RequestException as exc:
                     last_error = exc
@@ -178,6 +205,8 @@ class HttpFetcher:
 
                 redirect_url = urljoin(response.url or current_url, location)
                 self._validate_url(redirect_url, allowed_domains)
+                if allowed_url_prefixes:
+                    self._validate_url_prefix(redirect_url, allowed_url_prefixes)
                 current_url = redirect_url
                 redirect_count += 1
                 continue
@@ -192,6 +221,8 @@ class HttpFetcher:
             # With redirects disabled, response.url must remain the URL whose
             # domain and robots policy were checked before the request.
             self._validate_url(response.url or current_url, allowed_domains)
+            if allowed_url_prefixes:
+                self._validate_url_prefix(response.url or current_url, allowed_url_prefixes)
             if response.url and response.url != current_url:
                 raise FetchError(
                     f"Unexpected final response URL after requesting {current_url}: {response.url}",

@@ -16,5 +16,7 @@
   "source_url": "https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology",
   "source_published_at": "2026-09-29T14:00:02Z",
   "body_markdown": "## 发生了什么\n\nMicrosoft Research 介绍 Quine，一个仍处于早期阶段的生物学研究系统。它由两部分组成：学习生物学跨模态表示的世界模型，以及连接模型、科学工具、文献和研究人员的交互式编排层。官方列出的数据类型包括基因组、蛋白质、化学、RNA、细胞状态和生物成像，目标是让一种尺度上的证据能够辅助另一种尺度上的预测。\n\n## 胰腺癌研究示例\n\nMicrosoft Research 与 Broad Institute 合作，将 Quine 用于胰腺导管腺癌细胞状态研究。系统根据候选化合物可能推动的细胞状态变化进行计算排序；随后，团队通过多项湿实验检验优先级较高的候选。微软称，部分排名靠前的化合物产生了预期方向的变化，同时实验也显示细胞状态转变比简单的二分类更复杂。\n\n这个案例是研究流程中的计算筛选和实验验证，并不代表 Quine 已发现可用于患者治疗的药物。Microsoft 明确将它定位为实验性研究技术，限定于研究用途，输出仍需要研究人员审查和实验验证。\n\n## 为什么值得关注\n\nQuine 的重点不是单个预测指标，而是把跨模态模型放进“提出假设—排序实验—返回测量结果”的迭代环路。若这种组合能在更多研究问题中可靠缩小实验搜索空间，可能帮助研究团队更有效地分配昂贵的实验资源；目前证据仍来自有限的研究示例。\n\n## 来源\n\n[Microsoft Research 官方公告](https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology/)\n",
-  "image": null
+  "image": "/assets/news/2026/10/introducing-quine-an-ai-research-system-designed-for-the-complex.webp",
+  "image_alt": "Microsoft Research：Microsoft Research 推出 Quine，探索跨尺度生物学世界模型（研究进展，AI 资讯封面）",
+  "image_source_url": null
 }

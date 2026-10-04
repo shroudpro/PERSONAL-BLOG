@@ -61,8 +61,17 @@ def validate_article(article: EditorArticle) -> list[str]:
                 continue
         if normalized_source_url is None or normalized_source_url not in linked_source_urls:
             errors.append("body must include a clickable Markdown link to source_url")
-    if article.image is not None and article.image.strip():
-        errors.append("image is not enabled for this MVP without confirmed reuse rights")
+    if not article.image or not article.image.strip():
+        errors.append("image is required; run media prepare before publish")
+    elif not article.image.startswith("/assets/news/") or ".." in Path(article.image).parts:
+        errors.append("image must be a local /assets/news/ path")
+    if not article.image_alt or not article.image_alt.strip():
+        errors.append("image_alt is required")
+    if article.image_source_url:
+        try:
+            normalize_url(article.image_source_url)
+        except ValueError:
+            errors.append("image_source_url must be a valid HTTP(S) URL")
     return errors
 
 

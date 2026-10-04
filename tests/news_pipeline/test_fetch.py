@@ -130,3 +130,23 @@ def test_fetcher_follows_allowed_redirect_after_checks() -> None:
         "https://example.com/feed.xml",
         "https://example.com/feed/latest.xml",
     ]
+
+
+def test_fetcher_rejects_redirect_outside_allowed_asset_prefix() -> None:
+    redirect = FakeResponse("https://cdn.example.com/press/cover.png", status=302)
+    redirect.headers["Location"] = "/uploads/cover.png"
+    session = FakeSession([
+        FakeResponse("https://cdn.example.com/robots.txt", status=404),
+        redirect,
+    ])
+    fetcher = HttpFetcher(session=session, min_interval=0, sleep=lambda _: None)
+
+    with pytest.raises(FetchError, match="outside allowed URL prefixes"):
+        fetcher.get(
+            "https://cdn.example.com/press/cover.png",
+            allowed_domains=("cdn.example.com",),
+            allowed_url_prefixes=("https://cdn.example.com/press/",),
+            stream=True,
+        )
+
+    assert session.calls[-1][1]["stream"] is True

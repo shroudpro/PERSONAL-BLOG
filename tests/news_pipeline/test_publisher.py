@@ -17,6 +17,9 @@ def make_article(
     source_url: str = "https://example.com/news/model",
     slug: str = "model-release",
     category: str = "模型发布",
+    image: str | None = "/assets/news/2026/10/model-release.webp",
+    image_alt: str | None = "模型发布封面",
+    image_source_url: str | None = None,
     body_markdown: str = "## 发生了什么\n\n模型已发布。\n\n## 来源\n\n[官方原文](https://example.com/news/model)\n",
 ) -> EditorArticle:
     return EditorArticle(
@@ -32,12 +35,28 @@ def make_article(
         source_url=source_url,
         source_published_at="2026-10-02T12:00:00Z",
         body_markdown=body_markdown,
+        image=image,
+        image_alt=image_alt,
+        image_source_url=image_source_url,
     )
 
 
 def write_draft(path, article: EditorArticle) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(article.to_dict(), ensure_ascii=False, indent=2), encoding="utf-8")
+    if article.image and article.image.startswith("/assets/news/"):
+        repository_root = path.parent.parent
+        image_path = repository_root / article.image.lstrip("/")
+        image_path.parent.mkdir(parents=True, exist_ok=True)
+        image_path.write_bytes(b"test cover")
+        manifest_path = repository_root / "assets" / "news" / "manifest.json"
+        manifest_path.write_text(
+            json.dumps({
+                "schema_version": 1,
+                "covers": [{"post_slug": article.slug, "local_path": article.image, "sha256": "test"}],
+            }),
+            encoding="utf-8",
+        )
 
 
 def test_publisher_dry_run_validates_and_writes_nothing(tmp_path) -> None:
@@ -174,6 +193,41 @@ def test_publisher_requires_clickable_source_link_and_safe_source_id(tmp_path) -
 
     assert not (tmp_path / "outside-model-release.md").exists()
     assert not state_path.exists()
+
+
+def test_publisher_rejects_remote_or_missing_cover(tmp_path) -> None:
+    draft_dir = tmp_path / "editor_drafts"
+    posts_dir = tmp_path / "_posts"
+    state_path = tmp_path / "state" / "publications.jsonl"
+    remote = make_article(image="https://cdn.example.com/cover.png", image_alt="remote")
+    write_draft(draft_dir / "news-001.json", remote)
+
+    with pytest.raises(ValueError, match="local /assets/news"):
+        publish_articles(draft_dir, posts_dir, state_path, limit=5)
+
+    missing = make_article(image=None, image_alt=None)
+    write_draft(draft_dir / "news-001.json", missing)
+    with pytest.raises(ValueError, match="image is required"):
+        publish_articles(draft_dir, posts_dir, state_path, limit=5)
+
+
+def test_publisher_rejects_cover_missing_from_manifest(tmp_path) -> None:
+    draft_dir = tmp_path / "editor_drafts"
+    posts_dir = tmp_path / "_posts"
+    state_path = tmp_path / "state" / "publications.jsonl"
+    article = make_article()
+    draft_dir.mkdir(parents=True)
+    (draft_dir / "news-001.json").write_text(
+        json.dumps(article.to_dict(), ensure_ascii=False), encoding="utf-8"
+    )
+    image_path = tmp_path / article.image.lstrip("/")
+    image_path.parent.mkdir(parents=True)
+    image_path.write_bytes(b"test cover")
+    manifest_path = tmp_path / "assets" / "news" / "manifest.json"
+    manifest_path.write_text(json.dumps({"schema_version": 1, "covers": []}), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="missing from cover manifest"):
+        publish_articles(draft_dir, posts_dir, state_path, limit=5)
 
 
 def test_publisher_accepts_equivalent_source_url_with_trailing_slash(tmp_path) -> None:

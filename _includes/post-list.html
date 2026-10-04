@@ -48,7 +48,7 @@
       <div class="card-thumb-wrapper">
         {% if post.image %}
         <div class="card-thumb-beam"></div>
-        <img class="card-thumb" src="{{ post.image }}" alt="{{ post.title }}" loading="lazy" onload="this.parentElement.classList.add('thumb-loaded')">
+        <img class="card-thumb" src="{{ post.image }}" alt="{{ post.image_alt | default: post.title }}" loading="lazy" onload="this.parentElement.classList.add('thumb-loaded')">
         {% else %}
         <div class="card-no-image">
           <span class="material-symbols-outlined">article</span>

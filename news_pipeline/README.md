@@ -1,6 +1,6 @@
 # AI News Collector
 
-本目录包含 PERSONAL-BLOG 的本地 AI 资讯采集、编辑和发布工具。采集结果写入 `storage/inbox/`，去重状态写入 `state/seen.jsonl`；文章由编辑草稿审核后写入 Jekyll `_posts/`，不会自动调用外部 LLM 或下载图片。
+本目录包含 PERSONAL-BLOG 的本地 AI 资讯采集、编辑、媒体准备和发布工具。采集结果写入 `storage/inbox/`，去重状态写入 `state/seen.jsonl`；文章由编辑草稿审核后写入 Jekyll `_posts/`，不会自动调用外部 LLM。图片只有通过独立 `media prepare` 且具备明确复用依据时才会下载。
 
 ## Windows 本地环境
 
@@ -45,12 +45,20 @@ python -m venv .venv
   --select 7ee79eecb360c6d0 --select 09d1d26fa19dd694 `
   --select e81b1dea7ce0fb42
 
-# 完成 JSON 草稿正文后，先校验预览，再写入 _posts/ 和 publications.jsonl
+# 完成 JSON 草稿正文后，先准备本地封面，再校验预览并写入 _posts/ 和 publications.jsonl
+.\.venv\Scripts\python.exe -m news_pipeline.cli media prepare --dry-run
+.\.venv\Scripts\python.exe -m news_pipeline.cli media prepare
 .\.venv\Scripts\python.exe -m news_pipeline.cli publish --limit 7 --dry-run
 .\.venv\Scripts\python.exe -m news_pipeline.cli publish --limit 7
 ```
 
 Publisher 在整批文章通过校验后才写文件；`state/publications.jsonl` 按 news ID 和来源 URL 记录已生成文章，重复运行会跳过已发布内容。Front Matter 保留 `ai_generated: true` 和 `reviewed: false`，发布命令只生成本地文件，不会部署网站。
+
+## 封面媒体管线
+
+`media prepare` 是独立的封面准备步骤。它读取已核验草稿和已发布文章的来源元数据，优先检查 `config/image_reuse.yml` 中登记了明确复用授权的官方图片；未登记、下载失败或验证失败时，使用 Pillow 在本地生成 1280×720 WebP fallback。结果写入 `assets/news/YYYY/MM/` 和 `assets/news/manifest.json`，并同步草稿与文章 Front Matter。`--news-id` 可限制处理范围，`--dry-run` 不写任何文件。
+
+只有在 `image_reuse.yml` 中同时登记 `source_id`、精确 `source_page`、官方 CDN 路径前缀、复用依据和证据链接后，才会下载远程图片。Jekyll 构建只消费 `/assets/news/` 的本地文件，不会联网抓图。
 
 ## 采集边界
 

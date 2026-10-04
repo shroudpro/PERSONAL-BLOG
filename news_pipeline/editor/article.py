@@ -21,6 +21,8 @@ class EditorArticle:
     source_published_at: str | None
     body_markdown: str
     image: str | None = None
+    image_alt: str | None = None
+    image_source_url: str | None = None
 
     @classmethod
     def from_news_item(cls, item: NewsItem, *, date: str, slug: str) -> EditorArticle:
@@ -70,6 +72,12 @@ class EditorArticle:
         image = value.get("image")
         if image is not None and not isinstance(image, str):
             raise ValueError("Editor article field image must be a string or null")
+        image_alt = value.get("image_alt")
+        if image_alt is not None and not isinstance(image_alt, str):
+            raise ValueError("Editor article field image_alt must be a string or null")
+        image_source_url = value.get("image_source_url")
+        if image_source_url is not None and not isinstance(image_source_url, str):
+            raise ValueError("Editor article field image_source_url must be a string or null")
 
         return cls(
             news_id=value["news_id"],
@@ -85,6 +93,8 @@ class EditorArticle:
             source_published_at=source_published_at,
             body_markdown=value["body_markdown"],
             image=image,
+            image_alt=image_alt,
+            image_source_url=image_source_url,
         )
 
     def to_dict(self) -> dict[str, Any]:

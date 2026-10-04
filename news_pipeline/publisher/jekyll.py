@@ -13,6 +13,7 @@ import yaml
 from news_pipeline.core.normalize import normalize_url, parse_datetime_value
 from news_pipeline.editor.article import EditorArticle
 from news_pipeline.editor.validator import validate_article_batch
+from news_pipeline.media.manifest import CoverManifest
 
 
 _SHANGHAI = ZoneInfo("Asia/Shanghai")
@@ -113,6 +114,8 @@ def render_post(article: EditorArticle) -> str:
         "categories": [article.category],
         "tags": list(article.tags),
         "image": article.image or "",
+        "image_alt": article.image_alt or article.title,
+        "image_source_url": article.image_source_url or "",
         "source_name": article.source_name,
         "source_url": article.source_url,
         "source_published_at": article.source_published_at or "",
@@ -213,6 +216,16 @@ def publish_articles(
         existing_source_urls=existing_urls,
     )
     targets = [_post_path(posts_dir, article) for article in selected]
+    manifest = CoverManifest(posts_dir.parent / "assets" / "news" / "manifest.json")
+    for article in selected:
+        if not article.image:
+            continue
+        image_path = posts_dir.parent / article.image.lstrip("/")
+        record = manifest.by_slug(article.slug)
+        if not image_path.is_file():
+            errors.append(f"{article.news_id}: local cover file does not exist: {article.image}")
+        if record is None or record.get("local_path") != article.image:
+            errors.append(f"{article.news_id}: image is missing from cover manifest: {article.image}")
     for article, target in zip(selected, targets):
         if target.exists():
             errors.append(f"post path already exists: {target.name}")

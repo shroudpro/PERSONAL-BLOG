@@ -10,13 +10,15 @@ tags:
 - AstaBrief
 - 科学报告
 - 开源模型
-image: ''
+image: /assets/news/2026/10/open-sourcing-astabrief-the-fast-report-generation-model-in-asta.webp
 source_name: Hugging Face Blog
 source_url: https://huggingface.co/blog/allenai/astabrief
 source_published_at: '2026-10-02T15:19:50Z'
 ai_generated: true
 reviewed: false
 toc: true
+image_alt: Hugging Face Blog：Ai2 开源 AstaBrief 8B：面向带引用科研报告的生成模型（开源项目，AI 资讯封面）
+image_source_url: ''
 ---
 
 ## 发生了什么

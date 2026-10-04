@@ -10,13 +10,15 @@ tags:
 - Gemini
 - 推理模型
 - 网络安全
-image: ''
+image: /assets/news/2026/10/gemini-4-argon-our-next-era-of-frontier-intelligence.webp
 source_name: Google AI / Google Blog - AI
 source_url: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon
 source_published_at: '2026-09-30T00:00:00Z'
 ai_generated: true
 reviewed: false
 toc: true
+image_alt: Google AI / Google Blog - AI：Gemini 4 Argon 开始分阶段推出：面向复杂工作流与网络防御（模型发布，AI 资讯封面）
+image_source_url: ''
 ---
 
 ## 发生了什么

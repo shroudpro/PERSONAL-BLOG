@@ -10,13 +10,15 @@ tags:
 - 生物学
 - 多模态模型
 - 药物发现
-image: ''
+image: /assets/news/2026/10/introducing-quine-an-ai-research-system-designed-for-the-complex.webp
 source_name: Microsoft Research
 source_url: https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology
 source_published_at: '2026-09-29T14:00:02Z'
 ai_generated: true
 reviewed: false
 toc: true
+image_alt: Microsoft Research：Microsoft Research 推出 Quine，探索跨尺度生物学世界模型（研究进展，AI 资讯封面）
+image_source_url: ''
 ---
 
 ## 发生了什么

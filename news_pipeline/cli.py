@@ -163,6 +163,23 @@ def run_publish(
     )
 
 
+def run_media_prepare(
+    *,
+    pipeline_root: str | Path = PIPELINE_ROOT,
+    repository_root: str | Path = REPOSITORY_ROOT,
+    news_ids: set[str] | None = None,
+    dry_run: bool = False,
+) -> dict:
+    from news_pipeline.media.pipeline import prepare_covers
+
+    return prepare_covers(
+        repository_root,
+        pipeline_root,
+        news_ids=news_ids,
+        dry_run=dry_run,
+    )
+
+
 def build_collector(source: SourceConfig, fetcher: HttpFetcher) -> BaseCollector:
     collectors: dict[str, type[BaseCollector]] = {
         "feed": FeedCollector,
@@ -346,6 +363,14 @@ def build_parser() -> argparse.ArgumentParser:
     publish = commands.add_parser("publish", help="校验编辑草稿并生成本地 Jekyll 文章")
     publish.add_argument("--limit", type=_positive_int, default=5, help="本轮最多生成的文章数")
     publish.add_argument("--dry-run", action="store_true", help="验证并预览，不写文章或发布状态")
+    media = commands.add_parser("media", help="准备文章媒体资源")
+    media_commands = media.add_subparsers(dest="media_command", required=True)
+    prepare = media_commands.add_parser("prepare", help="为文章准备本地封面并更新 Front Matter")
+    prepare.add_argument(
+        "--news-id", dest="news_ids", action="append", default=[], metavar="NEWS_ID",
+        help="只处理指定资讯 ID；可重复指定",
+    )
+    prepare.add_argument("--dry-run", action="store_true", help="预览，不写图片、manifest 或文章")
     commands.add_parser("health", help="检查来源可访问性和解析情况")
     return parser
 
@@ -396,6 +421,19 @@ def main(argv: list[str] | None = None) -> int:
             print(f"{action} {result['planned_count']} 篇；跳过已发布 {result['skipped_count']} 篇")
             for record in result["records"]:
                 print(f"  {record['post_path']} <- {record['source_url']}")
+            print(f"dry-run：{'是' if args.dry_run else '否'}")
+            return 0
+
+        if args.command == "media" and args.media_command == "prepare":
+            result = run_media_prepare(
+                news_ids=set(args.news_ids) or None,
+                dry_run=args.dry_run,
+            )
+            action = "计划准备" if args.dry_run else "已准备"
+            print(f"{action} {result['count']} 个封面")
+            for record in result["records"]:
+                source = "fallback" if record["generated"] else "official"
+                print(f"  {record['news_id']} [{source}] -> {record['local_path']}")
             print(f"dry-run：{'是' if args.dry_run else '否'}")
             return 0
 

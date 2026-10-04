@@ -16,5 +16,7 @@
   "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon",
   "source_published_at": "2026-09-30T00:00:00Z",
   "body_markdown": "## 发生了什么\n\nGoogle 发布 Gemini 4 Argon，并通过 Fairwind Program 向一组受信任的网络防御人员分阶段开放。官方将它定位为面向复杂、长周期任务的前沿模型，覆盖软件工程、法律与金融等企业知识工作，以及网络安全防御。目前仍处于受控推广阶段，Google 表示会根据早期测试反馈继续完善防护，再逐步扩大可用范围。\n\n## 能力与开放方式\n\nArgon 的上下文长度上限提高到 100 万 tokens，官方称此举是为更长的分析和执行轨迹提供空间。Google 还称模型能够发现、验证并修补软件漏洞，并公布了内部和外部评测结果；这些属于发布方披露的测试表现，不能直接等同于所有真实环境中的效果。防护计划包括对恶意网络安全用途的限制、针对提示注入的训练，以及对执行过程的监测。\n\n首发定价为每百万输入 tokens 2 美元、每百万输出 tokens 10 美元；官方称优惠期结束后价格将调整为 4 美元和 20 美元。发布日期没有伴随面向所有开发者的即时开放承诺，初期对象仍是受信任的测试方。\n\n## 为什么值得关注\n\n这次发布把长上下文与网络安全能力放在同一个受控部署流程中：高风险能力可以先交给防御团队评估，但也需要更严格的访问和监测。对开发者而言，当前更值得观察的是后续开放范围、防护效果与外部评测，而不是将厂商基准直接视作独立验证。\n\n## 来源\n\n[Google 官方公告](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/)\n",
-  "image": null
+  "image": "/assets/news/2026/10/gemini-4-argon-our-next-era-of-frontier-intelligence.webp",
+  "image_alt": "Google AI / Google Blog - AI：Gemini 4 Argon 开始分阶段推出：面向复杂工作流与网络防御（模型发布，AI 资讯封面）",
+  "image_source_url": null
 }

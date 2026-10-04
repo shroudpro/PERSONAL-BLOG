@@ -10,13 +10,15 @@ tags:
 - TPU
 - 太空计算
 - 机器学习基础设施
-image: ''
+image: /assets/news/2026/10/our-project-suncatcher-prototype-satellite-is-in-orbit.webp
 source_name: Google AI / Google Blog - AI
 source_url: https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-prototype
 source_published_at: '2026-10-01T00:00:00Z'
 ai_generated: true
 reviewed: false
 toc: true
+image_alt: Google AI / Google Blog - AI：Google 将 Project Suncatcher 原型卫星送入轨道，开始测试太空 AI 基础设施（AI 基础设施，AI 资讯封面）
+image_source_url: ''
 ---
 
 ## 发生了什么
